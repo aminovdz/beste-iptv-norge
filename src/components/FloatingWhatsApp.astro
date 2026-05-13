@@ -1,0 +1,42 @@
+---
+import { MessageCircle } from 'lucide-astro';
+---
+
+<div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 pointer-events-none">
+  <!-- Tooltip Message -->
+  <div class="bg-white text-black text-xs font-bold px-4 py-2 rounded-2xl shadow-2xl animate-fade-up pointer-events-auto border border-white/20 flex items-center gap-2">
+    <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+    Prat med oss på WhatsApp
+  </div>
+
+  <!-- Main Button -->
+  <a 
+    href="https://wa.me/18036582620" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    class="relative pointer-events-auto bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform active:scale-95 group"
+    aria-label="Prat med oss på WhatsApp"
+  >
+    <!-- Pulse Effect -->
+    <span class="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-20"></span>
+    
+    <MessageCircle class="w-8 h-8 relative z-10" />
+    
+    <!-- Notification Badge -->
+    <span class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-[10px] font-black flex items-center justify-center rounded-full border-2 border-[#25D366] shadow-lg animate-bounce">
+      1
+    </span>
+  </a>
+</div>
+
+<style>
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-up {
+    animation: fade-up 0.5s ease-out forwards;
+    animation-delay: 2s;
+    opacity: 0;
+  }
+</style>

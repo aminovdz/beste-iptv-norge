@@ -1,0 +1,291 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Calendar, Clock, ArrowRight, Bookmark, Search, Award } from 'lucide-astro';
+
+const title = "IPTV Norge Blogg | Tips om Best IPTV Norge";
+const description = "Lær alt om IPTV Norge. Vi deler guider om hvordan du får Best IPTV Norge på din TV, feilsøking og nyheter om kanaler og sport.";
+
+const posts = [
+	{
+		slug: "hvordan-fikse-bufring",
+		title: "Hvordan fikse bufring på IPTV: Den komplette guiden",
+		excerpt: "Ingenting er mer irriterende enn at bildet stopper opp midt i en viktig kamp. Her er 5 trinn for å eliminere bufring for godt.",
+		image: "/images/hero-iptv.webp",
+		readTime: "8 min",
+		date: "10. Mai 2026",
+		category: "Feilsøking"
+	},
+	{
+		slug: "beste-iptv-apper-smart-tv",
+		title: "Beste IPTV-apper for LG og Samsung Smart TV i 2026",
+		excerpt: "Vi har testet alle de populære appene. Se hvilken som er raskest og enklest å bruke på din TV.",
+		image: "/images/setup-guide.webp",
+		readTime: "6 min",
+		date: "5. Mai 2026",
+		category: "Guider"
+	},
+	{
+		slug: "hva-er-den-beste-iptv-i-norge",
+		title: "Hva er den beste IPTV i Norge? (Topp 4 Rangering)",
+		excerpt: "Vi har testet markedets største leverandører. Se hvem som stakk av med seieren i vår store test.",
+		image: "/images/hero-iptv.webp",
+		readTime: "10 min",
+		date: "12. Mai 2026",
+		category: "Tester"
+	},
+	{
+		slug: "er-iptv-gratis",
+		title: "Er IPTV gratis? Sannheten om gratis IPTV-tjenester",
+		excerpt: "Mange lokker med gratis TV, men hva er egentlig risikoen? Vi avslører sannheten bak gratislister.",
+		image: "/images/setup-guide.webp",
+		readTime: "5 min",
+		date: "11. Mai 2026",
+		category: "Sikkerhet"
+	},
+	{
+		slug: "er-altibox-iptv",
+		title: "Er Altibox IPTV? Hvordan teknologien fungerer",
+		excerpt: "Lær om forskjellen på tradisjonell fiber-TV og moderne IPTV-løsninger.",
+		image: "/images/hero-iptv.webp",
+		readTime: "7 min",
+		date: "9. Mai 2026",
+		category: "Teknologi"
+	},
+	{
+		slug: "hvordan-se-fotball-pa-iptv",
+		title: "Hvordan se fotball på IPTV: Få tilgang til alle ligaer",
+		excerpt: "Aldri gå glipp av en kamp igjen. Slik får du tilgang til Premier League og mer i 4K.",
+		image: "/images/oslo-iptv.webp",
+		readTime: "9 min",
+		date: "8. Mai 2026",
+		category: "Sport"
+	},
+	{
+		slug: "hva-kan-man-se-pa-iptv",
+		title: "Hva kan man se på IPTV? Kanaler, sport og VOD",
+		excerpt: "Utforsk det enorme biblioteket av innhold som er tilgjengelig med et IPTV-abonnement.",
+		image: "/images/hero-iptv.webp",
+		readTime: "8 min",
+		date: "7. Mai 2026",
+		category: "Innhold"
+	},
+	{
+		slug: "norsk-tv-i-utlandet",
+		title: "Hvordan se norsk TV i utlandet: Den enkle metoden",
+		excerpt: "Slik tar du med deg alle dine norske favorittkanaler på ferie eller flyttelasset.",
+		image: "/images/setup-guide.webp",
+		readTime: "6 min",
+		date: "6. Mai 2026",
+		category: "Guider"
+	},
+	{
+		slug: "hvor-mange-i-norge-har-iptv",
+		title: "Hvor mange i Norge har IPTV? Trenden som vokser",
+		excerpt: "Vi ser nærmere på hvorfor hundretusenvis av nordmenn nå velger alternative TV-løsninger.",
+		image: "/images/oslo-iptv.webp",
+		readTime: "5 min",
+		date: "4. Mai 2026",
+		category: "Nyheter"
+	},
+	{
+		slug: "hva-trenger-jeg-for-iptv",
+		title: "Hva trenger jeg for å se IPTV? Utstyrsguide",
+		excerpt: "En enkel oversikt over utstyret og appene du trenger for å komme i gang i dag.",
+		image: "/images/setup-guide.webp",
+		readTime: "7 min",
+		date: "3. Mai 2026",
+		category: "Guider"
+	},
+	{
+		slug: "hvordan-fa-tilgang-til-iptv",
+		title: "Hvordan få tilgang til IPTV: Steg-for-steg guide",
+		excerpt: "Slik bestiller du og setter opp din første spilleliste på under 15 minutter.",
+		image: "/images/hero-iptv.webp",
+		readTime: "6 min",
+		date: "2. Mai 2026",
+		category: "Guider"
+	},
+	{
+		slug: "iptv-pa-vanlig-tv",
+		title: "Kan man se IPTV på vanlig TV? Slik gjør du det",
+		excerpt: "Lær hvordan du gjør din gamle TV smart med enkle og rimelige verktøy.",
+		image: "/images/hero-iptv.webp",
+		readTime: "5 min",
+		date: "1. Mai 2026",
+		category: "Guider"
+	},
+	{
+		slug: "hvordan-fa-app-pa-smart-tv",
+		title: "Hvordan få app på smart TV for IPTV? Guide for alle merker",
+		excerpt: "Trinn-for-trinn instruksjoner for Samsung, LG og Android TV-merker.",
+		image: "/images/setup-guide.webp",
+		readTime: "6 min",
+		date: "30. April 2026",
+		category: "Guider"
+	},
+	{
+		slug: "hva-er-m3u",
+		title: "Hva er M3U? En teknisk forklaring for nybegynnere",
+		excerpt: "Vi forklarer teknologien bak spillelistene på en enkel og forståelig måte.",
+		image: "/images/oslo-iptv.webp",
+		readTime: "4 min",
+		date: "29. April 2026",
+		category: "Teknologi"
+	},
+	{
+		slug: "iptv-flere-brukere-samtidig",
+		title: "Kan flere bruke IPTV samtidig? Regler for bruk",
+		excerpt: "Alt du trenger å vite om samtidige strømmer og hvordan du unngår sperrede kontoer.",
+		image: "/images/hero-iptv.webp",
+		readTime: "5 min",
+		date: "28. April 2026",
+		category: "Info"
+	},
+	{
+		slug: "kan-man-dele-iptv",
+		title: "Kan man dele IPTV? Deling av konto med andre",
+		excerpt: "Vi ser på konsekvensene av å dele innloggingsinformasjon med venner og familie.",
+		image: "/images/setup-guide.webp",
+		readTime: "5 min",
+		date: "27. April 2026",
+		category: "Sikkerhet"
+	},
+	{
+		slug: "hva-er-iptv-tv",
+		title: "Hva er IPTV TV? En komplett introduksjon",
+		excerpt: "Lær alt om fremtidens TV-teknologi og hvorfor den erstatter tradisjonell TV.",
+		image: "/images/oslo-iptv.webp",
+		readTime: "5 min",
+		date: "26. April 2026",
+		category: "Teknologi"
+	},
+	{
+		slug: "er-tivimate-gratis",
+		title: "Er TiviMate gratis? Priser og funksjoner forklart",
+		excerpt: "En gjennomgang av markedets beste IPTV-app og hva du får i premium-versjonen.",
+		image: "/images/setup-guide.webp",
+		readTime: "6 min",
+		date: "25. April 2026",
+		category: "Anmeldelser"
+	},
+	{
+		slug: "vpn-for-iptv-norge",
+		title: "Er det lurt å ha VPN for IPTV? Sikkerhet og ytelse",
+		excerpt: "Hvorfor en VPN er avgjørende for å unngå struping og sikre ditt personvern.",
+		image: "/images/hero-iptv.webp",
+		readTime: "7 min",
+		date: "24. April 2026",
+		category: "Sikkerhet"
+	},
+	{
+		slug: "beste-iptv-leverandor-norge",
+		title: "Hvilken er den beste IPTV-leverandøren i Norge? (Vår kåring)",
+		excerpt: "Vi kårer vinneren blant de største aktørene i det norske markedet.",
+		image: "/images/oslo-iptv.webp",
+		readTime: "11 min",
+		date: "23. April 2026",
+		category: "Tester"
+	},
+	{
+		slug: "hvilke-strommetjenester-er-best",
+		title: "Hvilke strømmetjenester er best? IPTV vs Tradisjonell TV",
+		excerpt: "En grundig sammenligning av innhold, pris og brukervennlighet.",
+		image: "/images/hero-iptv.webp",
+		readTime: "8 min",
+		date: "22. April 2026",
+		category: "Sammenligning"
+	}
+];
+---
+
+<Layout title={title} description={description}>
+	<div class="pt-32 pb-24 max-container">
+		<header class="text-center mb-24 max-w-4xl mx-auto">
+			<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border-white/10 mb-8">
+				<Award class="w-4 h-4 text-primary" />
+				<span class="text-xs font-bold uppercase tracking-widest text-gray-300">Kunnskapssenter</span>
+			</div>
+			<h1 class="text-5xl md:text-8xl font-black mb-8 tracking-tighter leading-tight">Vår <span class="text-gradient">Blogg</span></h1>
+			<p class="text-xl text-gray-400 leading-relaxed mb-12">
+				Få de siste nyhetene, tipsene og tekniske guidene for å sikre deg den beste TV-opplevelsen i Norge.
+			</p>
+			
+			<div class="relative max-w-xl mx-auto">
+				<Search class="absolute left-6 top-1/2 -translate-y-1/2 text-gray-500 w-5 h-5" />
+				<input 
+					type="text" 
+					placeholder="Søk i våre guider..." 
+					class="w-full bg-white/5 border border-white/10 rounded-full py-5 pl-14 pr-8 text-white focus:outline-none focus:border-primary/50 transition-all shadow-2xl"
+				/>
+			</div>
+		</header>
+
+		<!-- Featured Post -->
+		<div class="mb-24">
+			<a href={`/blog/${posts[0].slug}`} class="group relative block rounded-[48px] overflow-hidden border border-white/10 shadow-2xl">
+				<div class="absolute inset-0 z-0">
+					<img src={posts[0].image} alt={posts[0].title} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+					<div class="absolute inset-0 bg-gradient-to-t from-bg-dark via-bg-dark/40 to-transparent"></div>
+				</div>
+				
+				<div class="relative z-10 p-8 md:p-20 mt-32 md:mt-64">
+					<span class="bg-primary px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest text-white mb-6 inline-block">Anbefalt lesing</span>
+					<h2 class="text-3xl md:text-6xl font-black mb-6 group-hover:text-primary transition-colors leading-tight max-w-3xl">{posts[0].title}</h2>
+					<p class="text-lg text-gray-300 max-w-2xl mb-8 line-clamp-2">{posts[0].excerpt}</p>
+					<div class="flex items-center gap-6 text-sm text-gray-400">
+						<span class="flex items-center gap-2"><Calendar class="w-4 h-4" /> {posts[0].date}</span>
+						<span class="flex items-center gap-2"><Clock class="w-4 h-4" /> {posts[0].readTime}</span>
+						<span class="text-white font-bold group-hover:translate-x-2 transition-transform flex items-center gap-2">Les hele guiden <ArrowRight class="w-4 h-4" /></span>
+					</div>
+				</div>
+			</a>
+		</div>
+
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+			{posts.map((post) => (
+				<article class="group glass rounded-[40px] overflow-hidden border border-white/5 hover:border-white/20 transition-all flex flex-col h-full">
+					<a href={`/blog/${post.slug}`} class="relative block h-64 overflow-hidden">
+						<img src={post.image} alt={post.title} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+						<div class="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest text-white border border-white/10">
+							{post.category}
+						</div>
+					</a>
+					
+					<div class="p-8 flex-1 flex flex-col">
+						<div class="flex items-center gap-4 text-xs text-gray-500 mb-4">
+							<span class="flex items-center gap-1.5"><Calendar class="w-3 h-3" /> {post.date}</span>
+							<span class="flex items-center gap-1.5"><Clock class="w-3 h-3" /> {post.readTime}</span>
+						</div>
+						
+						<h3 class="text-2xl font-black mb-4 group-hover:text-primary transition-colors leading-tight">
+							<a href={`/blog/${post.slug}`}>{post.title}</a>
+						</h3>
+						
+						<p class="text-gray-400 text-sm mb-8 line-clamp-3 flex-1">{post.excerpt}</p>
+						
+						<div class="flex items-center justify-between pt-6 border-t border-white/5">
+							<a href={`/blog/${post.slug}`} class="text-sm font-bold text-white group-hover:text-primary transition-colors flex items-center gap-2">
+								Les mer
+								<ArrowRight class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+							</a>
+							<button class="text-gray-500 hover:text-white transition-colors">
+								<Bookmark class="w-5 h-5" />
+							</button>
+						</div>
+					</div>
+				</article>
+			))}
+		</div>
+
+		<div class="mt-24 glass p-10 md:p-20 rounded-[60px] text-center border border-white/10 bg-white/2 relative overflow-hidden">
+			<div class="absolute inset-0 bg-primary/5 blur-[120px] rounded-full -z-10"></div>
+			<h3 class="text-3xl md:text-5xl font-black mb-6">Meld deg på vårt nyhetsbrev</h3>
+			<p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">Få tips om nye kanaler, filmer og tekniske oppdateringer rett i innboksen.</p>
+			
+			<div class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+				<input type="email" placeholder="Din e-postadresse" class="flex-1 bg-white/5 border border-white/10 rounded-full px-8 py-4 focus:outline-none focus:border-primary/50 transition-all" />
+				<button class="btn-primary px-8">Meld meg på</button>
+			</div>
+		</div>
+	</div>
+</Layout>

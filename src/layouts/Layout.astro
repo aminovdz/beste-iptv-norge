@@ -1,0 +1,90 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import StickyHeader from '../components/StickyHeader.astro';
+import FloatingWhatsApp from '../components/FloatingWhatsApp.astro';
+import SocialPopup from '../components/SocialPopup.astro';
+import ExitPopup from '../components/ExitPopup.astro';
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+
+const organizationSchema = {
+	"@context": "https://schema.org",
+	"@type": "Organization",
+	"name": "iptv-norge.net",
+	"url": "https://iptv-norge.net",
+	"logo": "https://iptv-norge.net/favicon.svg",
+	"contactPoint": {
+		"@type": "ContactPoint",
+		"telephone": "+18036582620",
+		"contactType": "customer service",
+		"email": "contact@iptv-norge.net",
+		"availableLanguage": ["Norwegian", "English"]
+	},
+	"address": {
+		"@type": "PostalAddress",
+		"streetAddress": "Karl Johans gate 22",
+		"addressLocality": "Oslo",
+		"postalCode": "0159",
+		"addressCountry": "NO"
+	}
+};
+---
+
+<!doctype html>
+<html lang="no">
+	<head>
+		<BaseHead title={title} description={description} />
+		<script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+		<slot name="head" />
+	</head>
+	<body>
+		<StickyHeader />
+		<main>
+			<slot />
+		</main>
+		<FloatingWhatsApp />
+		<SocialPopup />
+		<ExitPopup />
+		
+		<footer class="bg-black/50 border-t border-glass-border py-12 px-4 mt-20">
+			<div class="max-container flex flex-col md:flex-row justify-between items-center gap-8">
+				<div class="text-center md:text-left">
+					<span class="text-2xl font-bold text-gradient">iptv-norge.net</span>
+					<p class="text-gray-400 mt-2 text-sm max-w-xs">Opplev den beste IPTV-tjenesten i Norge med et enormt utvalg av kanaler og VOD-titler.</p>
+					<p class="text-gray-500 mt-4 text-xs">Karl Johans gate 22, 0159 Oslo, Norge</p>
+				</div>
+				<div class="flex flex-col gap-6">
+					<nav class="flex flex-wrap justify-center md:justify-end gap-6 text-sm text-gray-400">
+						<a href="/" class="hover:text-primary transition-colors">Hjem</a>
+						<a href="/beste-iptv-norge" class="hover:text-primary transition-colors">Best IPTV</a>
+						<a href="/no" class="hover:text-primary transition-colors font-bold text-white">Nordic IPTV</a>
+						<a href="/blog" class="hover:text-primary transition-colors">Blogg</a>
+						<a href="/setup" class="hover:text-primary transition-colors">Oppsett</a>
+						<a href="/contact" class="hover:text-primary transition-colors">Kontakt</a>
+					</nav>
+					<nav class="flex flex-wrap justify-center md:justify-end gap-4 text-xs text-gray-500">
+						<span class="text-gray-600">Byer:</span>
+						<a href="/cities/oslo" class="hover:text-primary transition-colors">Oslo</a>
+						<a href="/cities/bergen" class="hover:text-primary transition-colors">Bergen</a>
+						<a href="/cities/trondheim" class="hover:text-primary transition-colors">Trondheim</a>
+						<a href="/cities/stavanger" class="hover:text-primary transition-colors">Stavanger</a>
+						<a href="/cities/drammen" class="hover:text-primary transition-colors">Drammen</a>
+					</nav>
+				</div>
+			</div>
+			<div class="max-container mt-12 pt-8 border-t border-glass-border flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+				<p>© {new Date().getFullYear()} iptv-norge.net. Alle rettigheter reservert.</p>
+				<div class="flex gap-4">
+					<a href="/privacy" class="hover:text-gray-300">Personvern</a>
+					<a href="/terms" class="hover:text-gray-300">Vilkår</a>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>

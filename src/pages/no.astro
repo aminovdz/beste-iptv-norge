@@ -1,0 +1,216 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PricingCard from '../components/PricingCard.astro';
+import FeatureGrid from '../components/FeatureGrid.astro';
+import ReferralBanner from '../components/ReferralBanner.astro';
+import UserReviewsSection from '../components/UserReviewsSection.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { Play, ShieldCheck, Zap, Globe, Award, CheckCircle2, ChevronRight, HelpCircle, Laptop, Smartphone, Tv, Monitor, Shield, Zap as Fast } from 'lucide-astro';
+
+const title = "IPTV Nordic | Nordic IPTV - Beste Norsk IPTV Tjeneste";
+const description = "Ser du etter Nordic IPTV? Vi tilbyr IPTV Nordic med tusenvis av kanaler, sport i 4K og lynrask aktivering. Prøv markedets beste Norsk IPTV tjeneste i dag!";
+
+const productSchema = {
+	"@context": "https://schema.org",
+	"@type": "Product",
+	"name": "Nordic IPTV Abonnemang",
+	"description": "Premium IPTV Nordic tjeneste med tusenvis av kanaler og Norsk IPTV fokus.",
+	"brand": {
+		"@type": "Brand",
+		"name": "iptv-norge.net"
+	},
+	"offers": {
+		"@type": "Offer",
+		"priceCurrency": "NOK",
+		"price": "80",
+		"availability": "https://schema.org/InStock"
+	},
+	"aggregateRating": {
+		"@type": "AggregateRating",
+		"ratingValue": "4.9",
+		"reviewCount": "3420"
+	}
+};
+---
+
+<Layout title={title} description={description}>
+	<script slot="head" type="application/ld+json" set:html={JSON.stringify(productSchema)} />
+
+	<!-- Hero Section -->
+	<section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+		<div class="absolute inset-0 z-0">
+			<img src="/images/hero-iptv.webp" alt="Premium IPTV Nordic Opplevelse" class="w-full h-full object-cover opacity-30 scale-105 animate-pulse-gentle" />
+			<div class="absolute inset-0 bg-gradient-to-b from-bg-dark/80 via-bg-dark/60 to-bg-dark"></div>
+		</div>
+
+		<div class="max-container relative z-10 w-full">
+			<div class="max-w-4xl">
+				<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border-white/10 mb-8 animate-fade-up">
+					<Award class="w-4 h-4 text-primary" />
+					<span class="text-xs font-bold uppercase tracking-widest text-gray-300">#1 Nordic IPTV Tjeneste 2026</span>
+				</div>
+
+				<h1 class="text-5xl md:text-8xl font-black mb-8 tracking-tighter leading-tight animate-fade-up">
+					Opplev <span class="text-gradient">IPTV Nordic</span><br />
+					Norsk IPTV Fokus
+				</h1>
+
+				<p class="text-lg md:text-2xl text-gray-400 mb-12 animate-fade-up max-w-2xl" style="animation-delay: 0.2s;">
+					Se tusenvis av kanaler med Nordic IPTV. Vi har det største utvalget av Norsk IPTV innhold i krystallklar 4K. Alt av premium sport og filmer.
+				</p>
+
+				<div class="flex flex-col sm:flex-row items-center gap-6 animate-fade-up" style="animation-delay: 0.4s;">
+					<a href="#section-pricing" class="btn-primary inline-flex items-center gap-3 group px-10 py-5 text-lg">
+						Velg Nordic IPTV Pakke
+						<Zap class="w-6 h-6 group-hover:fill-white transition-all" />
+					</a>
+					<a href="/beste-iptv-norge" class="text-white font-bold hover:text-primary transition-colors flex items-center gap-2 group">
+						Hvorfor vi leder markedet
+						<ChevronRight class="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Trusted Devices -->
+	<section class="py-12 border-y border-glass-border bg-white/5">
+		<div class="max-container flex flex-wrap justify-center items-center gap-12 opacity-50 grayscale hover:grayscale-0 transition-all">
+			<div class="flex items-center gap-2 font-bold text-xl"><Tv class="w-6 h-6" /> Android TV</div>
+			<div class="flex items-center gap-2 font-bold text-xl"><Monitor class="w-6 h-6" /> Amazon Fire</div>
+			<div class="flex items-center gap-2 font-bold text-xl"><Smartphone class="w-6 h-6" /> iOS/Android</div>
+			<div class="flex items-center gap-2 font-bold text-xl"><Laptop class="w-6 h-6" /> PC/Mac</div>
+			<div class="flex items-center gap-2 font-bold text-xl"><Globe class="w-6 h-6" /> Browser</div>
+		</div>
+	</section>
+
+	<FeatureGrid />
+
+	<!-- Pricing Table -->
+	<section id="section-pricing" class="py-24 bg-primary/5 relative">
+		<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(239,43,45,0.05),transparent_70%)]"></div>
+		<div class="max-container relative z-10">
+			<div class="text-center mb-16">
+				<h2 class="text-4xl md:text-6xl font-black mb-4 tracking-tighter">Beste Nordic IPTV Planer</h2>
+				<p class="text-gray-400">Finn din perfekte Norsk IPTV løsning for ditt behov.</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+				<PricingCard 
+					title="12 Måneder" 
+					price="550 kr" 
+					period="år" 
+					isYearly={true}
+					popular={true}
+					highlight={true}
+					features={["Alle Kanaler", "Nordic IPTV Fokus", "4K / Full HD / HD", "24/7 Support", "Best verdi for Norsk IPTV"]}
+				/>
+				<PricingCard 
+					title="6 Måneder" 
+					price="300 kr" 
+					period="6 måneder" 
+					features={["Alle Kanaler", "Stort utvalg VOD", "4K / Full HD / HD", "24/7 Support", "God verdi"]}
+				/>
+				<PricingCard 
+					title="3 Måneder" 
+					price="200 kr" 
+					period="3 måneder" 
+					features={["Alle Kanaler", "Norsk IPTV Innhold", "4K / Full HD / HD", "24/7 Support", "Standard pakke"]}
+				/>
+				<PricingCard 
+					title="1 Måned" 
+					price="80 kr" 
+					period="måned" 
+					features={["Alle Kanaler", "Prøv Nordic IPTV", "4K / Full HD / HD", "24/7 Support", "Ingen binding"]}
+				/>
+			</div>
+		</div>
+	</section>
+
+	<ReferralBanner />
+
+	<!-- Trust Section -->
+	<section class="py-24 relative overflow-hidden">
+		<div class="max-container">
+			<div class="text-center mb-20">
+				<h2 class="text-4xl md:text-6xl font-black mb-6 tracking-tighter">Nordic IPTV Aktivering</h2>
+				<p class="text-gray-400">Bli en del av den største Norsk IPTV plattformen på rekordtid.</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+				{[
+					{ step: "01", title: "Finn din løsning", desc: "Velg den abonnementsplanen som passer din Nordic IPTV bruk." },
+					{ step: "02", title: "Kontakt support", desc: "Vi setter opp din Norsk IPTV spilleliste manuelt for deg." },
+					{ step: "03", title: "Nyt underholdningen", desc: "Len deg tilbake og nyt Nordic IPTV i full 4K kvalitet." }
+				].map((item) => (
+					<div class="relative glass p-10 rounded-[40px] border border-white/5 group hover:border-primary/50 transition-all">
+						<span class="text-8xl font-black text-white/5 absolute top-4 right-8 group-hover:text-primary/10 transition-colors">{item.step}</span>
+						<h3 class="text-2xl font-bold mb-4 relative z-10">{item.title}</h3>
+						<p class="text-gray-400 relative z-10">{item.desc}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Coverage Section -->
+	<section class="py-24 border-y border-glass-border">
+		<div class="max-container">
+			<div class="flex flex-col lg:flex-row items-center gap-16">
+				<div class="flex-1">
+					<h2 class="text-4xl md:text-5xl font-black mb-8 tracking-tighter">Nordic IPTV Dekning</h2>
+					<p class="text-gray-400 mb-8 leading-relaxed">
+						Vi leverer stabil IPTV Nordic til hele Skandinavia. Våre servere er optimalisert for Norsk IPTV trafikk, slik at du får den beste opplevelsen uansett hvor du befinner deg.
+					</p>
+					<div class="grid grid-cols-2 gap-4">
+						{['Oslo', 'Bergen', 'Trondheim', 'Stavanger', 'Drammen'].map((city) => (
+							<a href={`/cities/${city.toLowerCase()}`} class="flex items-center gap-2 text-gray-300 hover:text-primary transition-colors font-bold">
+								<CheckCircle2 class="w-4 h-4 text-primary" />
+								Norsk IPTV i {city}
+							</a>
+						))}
+					</div>
+				</div>
+				<div class="flex-1 relative">
+					<div class="glass p-2 rounded-3xl border border-white/10 shadow-2xl overflow-hidden">
+						<img src="/images/oslo-iptv.webp" alt="Nordic IPTV Dekning" class="rounded-2xl w-full h-auto" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<UserReviewsSection />
+
+	<!-- FAQ Section -->
+	<section class="py-24 bg-white/2">
+		<div class="max-container max-w-3xl">
+			<div class="text-center mb-16">
+				<h2 class="text-4xl md:text-5xl font-black mb-4 tracking-tighter">Ofte stilte spørsmål om Nordic IPTV</h2>
+				<p class="text-gray-400">Finn svar på det du lurer på om vår IPTV Nordic tjeneste.</p>
+			</div>
+
+			<div class="space-y-4">
+				{[
+					{ q: "Hvorfor velge Nordic IPTV?", a: "Nordic IPTV gir deg tilgang til alle skandinaviske kanaler med et sterkt fokus på Norsk IPTV innhold. Vi har lokale servere for minimal forsinkelse." },
+					{ q: "Trenger jeg VPN for IPTV Nordic?", a: "Det er ikke påkrevd, men vi anbefaler <a href=\"https://protonvpn.com\" target=\"_blank\" rel=\"nofollow\" class=\"text-primary hover:underline\">ProtonVPN.com</a> for å sikre at din Norsk IPTV strøm forblir stabil og anonym." },
+					{ q: "Hvilke enheter støtter Nordic IPTV?", a: "Alle moderne enheter støttes, inkludert Smart TV, Firestick, Android og Apple enheter." },
+					{ q: "Er det mye Norsk IPTV innhold?", a: "Ja, vi har alle de største norske kanalene inkludert TV2 Sport, NRK og mye mer i 4K." },
+					{ q: "Hva er forskjellen på vanlig IPTV og IPTV Nordic?", a: "IPTV Nordic er optimalisert for brukere i Norden, med raskere tilkobling til skandinaviske strømmer og fullt fokus på Norsk IPTV behov." }
+				].map((item) => (
+					<details class="glass rounded-2xl p-6 group cursor-pointer border border-white/5 hover:border-white/10 transition-all">
+						<summary class="flex items-center justify-between font-bold text-lg list-none">
+							{item.q}
+							<HelpCircle class="w-5 h-5 text-primary group-open:rotate-180 transition-transform" />
+						</summary>
+						<p class="mt-4 text-gray-400 leading-relaxed border-t border-white/5 pt-4">
+							{item.a}
+						</p>
+					</details>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<ContactForm />
+</Layout>

@@ -1,0 +1,52 @@
+---
+import { Star } from 'lucide-astro';
+
+const reviews = [
+	{ name: "Marcus L.", date: "12. April 2026", text: "Fantastisk tjeneste! Ingen bufring under Premier League-kampene. Veldig fornøyd med utvalget av norske kanaler." },
+	{ name: "Solveig K.", date: "5. April 2026", text: "Enkelt å sette opp på min Samsung TV. Kundestøtte på WhatsApp svarte med en gang da jeg hadde spørsmål." },
+	{ name: "Andreas B.", date: "28. Mars 2026", text: "Beste IPTV-tjenesten jeg har prøvd i Norge. 4K-kvaliteten er helt suveren på sportskanalene." },
+	{ name: "Ingrid M.", date: "20. Mars 2026", text: "Elsker VOD-utvalget! Her finner jeg alt av de nyeste filmene med norske undertekster. Anbefales på det sterkeste." },
+	{ name: "Erik T.", date: "15. Mars 2026", text: "Bruker denne på min Firestick, og det fungerer perfekt. Stabilt og raskt kanalskifte." },
+	{ name: "Kristine S.", date: "10. Mars 2026", text: "Veldig god verdi for pengene. Har hatt tjenesten i 6 måneder nå uten noen problemer." },
+	{ name: "Morten H.", date: "2. Mars 2026", text: "Suverent utvalg av internasjonale kanaler. Perfekt for meg som følger med på sport fra hele verden." },
+	{ name: "Hanne V.", date: "25. Februar 2026", text: "Beste kundeservicen jeg har opplevd. De hjalp meg med installasjonen steg for steg." }
+];
+---
+
+<section id="section-reviews-delta" class="py-24 bg-bg-dark">
+	<div class="max-container">
+		<div class="text-center mb-16">
+			<h2 class="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight">Hva våre kunder sier</h2>
+			<div class="flex flex-col items-center gap-4">
+				<div class="flex items-center gap-1 text-primary">
+					{[...Array(5)].map(() => <Star class="w-8 h-8 fill-primary" />)}
+				</div>
+				<p class="text-2xl font-bold">4.9 / 5 stjerner</p>
+				<p class="text-gray-400">Basert på over 3 000 verifiserte anmeldelser</p>
+			</div>
+		</div>
+
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+			{reviews.map((review) => (
+				<div class="glass p-6 rounded-2xl flex flex-col justify-between hover:border-primary/50 transition-colors">
+					<div>
+						<div class="flex items-center gap-1 text-primary mb-4">
+							{[...Array(5)].map(() => <Star class="w-4 h-4 fill-primary" />)}
+						</div>
+						<p class="text-gray-300 text-sm leading-relaxed mb-6 italic">"{review.text}"</p>
+					</div>
+					<div class="flex justify-between items-center border-t border-white/5 pt-4">
+						<span class="font-bold text-white">{review.name}</span>
+						<span class="text-xs text-gray-500">{review.date}</span>
+					</div>
+				</div>
+			))}
+		</div>
+
+		<div class="mt-16 text-center">
+			<a href="https://wa.me/18036582620" target="_blank" rel="noopener noreferrer" class="btn-primary">
+				Bli vår neste fornøyde kunde
+			</a>
+		</div>
+	</div>
+</section>

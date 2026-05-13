@@ -1,0 +1,67 @@
+---
+import { MessageCircle, Send, X } from 'lucide-astro';
+---
+
+<div id="social-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-500 bg-black/60 backdrop-blur-sm">
+	<div class="glass max-w-md w-full p-8 rounded-3xl relative animate-fade-up">
+		<button id="close-social" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
+			<X class="w-6 h-6" />
+		</button>
+
+		<div class="text-center">
+			<div class="inline-flex items-center justify-center w-16 h-16 bg-primary/20 rounded-2xl mb-6">
+				<span class="text-3xl">🎁</span>
+			</div>
+			<h2 class="text-2xl font-bold mb-2">Bli med i vårt fellesskap!</h2>
+			<p class="text-gray-400 mb-8">Få eksklusive oppdateringer, kampanjer og direkte støtte.</p>
+		</div>
+
+		<div class="space-y-4">
+			<a href="https://whatsapp.com/channel/0029VayVaLpD8SE3bf8wMY3v" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-3 w-full bg-[#25D366] hover:bg-[#1ebd59] text-white font-bold py-4 rounded-2xl transition-all">
+				<MessageCircle class="w-6 h-6" />
+				Bli med i WhatsApp-kanalen
+			</a>
+			<a href="https://t.me/castvera_com" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-3 w-full bg-[#2AABEE] hover:bg-[#2297d1] text-white font-bold py-4 rounded-2xl transition-all">
+				<Send class="w-6 h-6" />
+				Bli med i Telegram-kanalen
+			</a>
+		</div>
+
+		<button id="maybe-later" class="w-full text-center mt-6 text-sm text-gray-500 hover:text-gray-300 transition-colors">
+			Kanskje senere
+		</button>
+	</div>
+</div>
+
+<script>
+	const modal = document.getElementById('social-modal');
+	const closeBtn = document.getElementById('close-social');
+	const maybeLater = document.getElementById('maybe-later');
+
+	const showModal = () => {
+		if (localStorage.getItem('social-popup-dismissed')) return;
+		modal?.classList.remove('opacity-0', 'pointer-events-none');
+	};
+
+	const hideModal = () => {
+		modal?.classList.add('opacity-0', 'pointer-events-none');
+		localStorage.setItem('social-popup-dismissed', 'true');
+	};
+
+	// Trigger after 5 seconds
+	setTimeout(showModal, 5000);
+
+	// Trigger on scroll past hero (approx 300px)
+	window.addEventListener('scroll', () => {
+		if (window.scrollY > 300) {
+			showModal();
+		}
+	}, { once: true });
+
+	closeBtn?.addEventListener('click', hideModal);
+	maybeLater?.addEventListener('click', hideModal);
+	
+	modal?.addEventListener('click', (e) => {
+		if (e.target === modal) hideModal();
+	});
+</script>

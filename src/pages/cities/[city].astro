@@ -1,0 +1,202 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FeatureGrid from '../../components/FeatureGrid.astro';
+import PricingCard from '../../components/PricingCard.astro';
+import ReferralBanner from '../../components/ReferralBanner.astro';
+import UserReviewsSection from '../../components/UserReviewsSection.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import { Zap, MapPin, CheckCircle2, ChevronRight, HelpCircle, ShieldCheck, Award } from 'lucide-astro';
+
+export async function getStaticPaths() {
+  const cities = [
+    { name: 'Oslo', image: '/images/oslo-iptv.webp' },
+    { name: 'Bergen', image: '/images/bergen-iptv.webp' },
+    { name: 'Trondheim', image: '/images/oslo-iptv.webp' },
+    { name: 'Stavanger', image: '/images/oslo-iptv.webp' },
+    { name: 'Drammen', image: '/images/oslo-iptv.webp' }
+  ];
+  return cities.map((city) => ({
+    params: { city: city.name.toLowerCase() },
+    props: { cityName: city.name, cityImage: city.image },
+  }));
+}
+
+const { cityName, cityImage } = Astro.props;
+
+const title = `IPTV ${cityName} | Best IPTV ${cityName}`;
+const description = `Ser du etter Best IPTV ${cityName}? iptv-norge.net leverer IPTV ${cityName} med tusenvis av kanaler og sport i 4K-kvalitet direkte til ditt hjem.`;
+
+const localSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": `IPTV Norge ${cityName}`,
+  "image": `https://iptv-norge.net${cityImage}`,
+  "@id": `https://iptv-norge.net/cities/${cityName.toLowerCase()}`,
+  "url": `https://iptv-norge.net/cities/${cityName.toLowerCase()}`,
+  "telephone": "+18036582620",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": cityName,
+    "addressCountry": "NO"
+  }
+};
+---
+
+<Layout title={title} description={description}>
+	<script slot="head" type="application/ld+json" set:html={JSON.stringify(localSchema)} />
+
+	<!-- Hero Section -->
+	<section class="relative min-h-[80vh] flex items-center pt-20 overflow-hidden">
+		<div class="absolute inset-0 z-0">
+			<img src={cityImage} alt={`Beste IPTV i ${cityName}`} class="w-full h-full object-cover opacity-40 scale-105" />
+			<div class="absolute inset-0 bg-gradient-to-b from-bg-dark/80 via-bg-dark/60 to-bg-dark"></div>
+		</div>
+
+		<div class="max-container relative z-10 w-full text-center">
+			<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border-white/10 mb-8 animate-fade-up">
+				<MapPin class="w-4 h-4 text-primary" />
+				<span class="text-xs font-bold uppercase tracking-widest text-gray-300">Lokal Tjeneste i {cityName}</span>
+			</div>
+
+			<h1 class="text-5xl md:text-8xl font-black mb-8 tracking-tighter leading-tight animate-fade-up">
+				IPTV <span class="text-gradient">{cityName}</span>
+			</h1>
+
+			<p class="text-lg md:text-2xl text-gray-400 max-w-3xl mx-auto mb-12 animate-fade-up">
+				Vi leverer den mest stabile IPTV-opplevelsen til alle i {cityName}. Opplev tusenvis av kanaler med lokal aktivering og 24/7 kundestøtte.
+			</p>
+
+			<div class="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-up">
+				<a href="#section-pricing" class="btn-primary flex items-center gap-2 group px-8 py-4">
+					Se Pakker for {cityName}
+					<Zap class="w-5 h-5 group-hover:fill-white transition-all" />
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<FeatureGrid />
+
+	<!-- Pricing Table (MOVED AFTER FEATURES) -->
+	<section id="section-pricing" class="py-24 bg-black/20">
+		<div class="max-container">
+			<div class="text-center mb-16">
+				<h2 class="text-4xl md:text-6xl font-extrabold mb-4 tracking-tight">Best IPTV {cityName} Priser</h2>
+				<p class="text-gray-400">Velg den pakken som passer best for IPTV {cityName}.</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+				<PricingCard 
+					title="12 Måneder" 
+					price="550 kr" 
+					period="år" 
+					isYearly={true}
+					popular={true}
+					highlight={true}
+					features={["Alle Kanaler", "Stort utvalg av VOD", "4K / Full HD / HD", "Gratis Spiller", "Beste pris i " + cityName]}
+				/>
+				<PricingCard 
+					title="6 Måneder" 
+					price="300 kr" 
+					period="6 måneder" 
+					features={["Alle Kanaler", "Stort utvalg av VOD", "4K / Full HD / HD", "24/7 Support", "God verdi"]}
+				/>
+				<PricingCard 
+					title="3 Måneder" 
+					price="200 kr" 
+					period="3 måneder" 
+					features={["Alle Kanaler", "Stort utvalg av VOD", "4K / Full HD / HD", "24/7 Support", "Populær i " + cityName]}
+				/>
+				<PricingCard 
+					title="1 Måned" 
+					price="80 kr" 
+					period="måned" 
+					features={["Alle Kanaler", "Stort utvalg av VOD", "4K / Full HD / HD", "24/7 Support", "Ingen binding"]}
+				/>
+			</div>
+		</div>
+	</section>
+
+	<ReferralBanner /> <!-- MOVED AFTER PRICING -->
+
+	<!-- Local Trust Section -->
+	<section class="py-24 bg-white/2">
+		<div class="max-container">
+			<div class="flex flex-col lg:flex-row items-center gap-16">
+				<div class="flex-1 relative order-2 lg:order-1">
+					<div class="glass p-2 rounded-3xl border border-white/10 shadow-2xl overflow-hidden">
+						<img src="/images/hero-iptv.webp" alt="IPTV Tjeneste Kvalitet" class="rounded-2xl w-full h-auto" />
+					</div>
+					<div class="absolute -bottom-6 -right-6 glass p-6 rounded-2xl border border-primary/20 bg-primary/5 hidden md:block">
+						<div class="flex items-center gap-4">
+							<ShieldCheck class="w-10 h-10 text-primary" />
+							<div>
+								<p class="font-bold text-white leading-none">99.9%</p>
+								<p class="text-xs text-gray-500 uppercase font-bold tracking-widest mt-1">Oppetid i {cityName}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="flex-1 order-1 lg:order-2">
+					<h2 class="text-4xl md:text-5xl font-black mb-8 tracking-tighter leading-tight">Hvorfor velge Best IPTV {cityName}?</h2>
+					<p class="text-gray-400 mb-8 leading-relaxed">
+						Innbyggere i {cityName} fortjener den beste kvaliteten på markedet. Enten du bor i sentrum eller i utkanten av {cityName}, sørger våre optimaliserte servere for at du får IPTV {cityName} uten irriterende bufring.
+					</p>
+					<ul class="space-y-4 mb-10">
+						<li class="flex items-start gap-3">
+							<CheckCircle2 class="w-6 h-6 text-primary shrink-0" />
+							<div>
+								<p class="font-bold text-white">Lokal aktivering</p>
+								<p class="text-sm text-gray-500">Vi aktiverer din konto i løpet av få minutter i {cityName}.</p>
+							</div>
+						</li>
+						<li class="flex items-start gap-3">
+							<CheckCircle2 class="w-6 h-6 text-primary shrink-0" />
+							<div>
+								<p class="font-bold text-white">Alt av sport</p>
+								<p class="text-sm text-gray-500">Få tilgang til alle store sportsbegivenheter direkte i {cityName}.</p>
+							</div>
+						</li>
+					</ul>
+					<a href="#section-pricing" class="text-primary font-bold flex items-center gap-2 group">
+						Se våre gunstige priser
+						<ChevronRight class="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Local FAQ Section (EXPANDED) -->
+	<section class="py-24 bg-white/2">
+		<div class="max-container max-w-3xl">
+			<div class="text-center mb-16">
+				<h2 class="text-4xl md:text-5xl font-black mb-4 tracking-tighter">Ofte stilte spørsmål i {cityName}</h2>
+				<p class="text-gray-400">Her er det folk i {cityName} lurer på om IPTV Norge.</p>
+			</div>
+
+			<div class="space-y-4">
+				{[
+					{ q: `Fungerer IPTV i hele ${cityName}?`, a: `Ja, vår tjeneste fungerer utmerket i alle deler av ${cityName}, så lenge du har en stabil internettilkobling.` },
+					{ q: "Trenger jeg en VPN for IPTV?", a: "Selv om det ikke er påkrevd, anbefaler vi å bruke ProtonVPN.com for å sikre optimal stabilitet og personvern i " + cityName + ". Dette forhindrer også struping fra din ISP." },
+					{ q: "Hvordan forbedrer ProtonVPN.com min 'motion'?", a: "Ved å bruke ProtonVPN.com unngår du at internettleverandøren din reduserer hastigheten på strømmen din under store kamper, noe som sikrer en jevnere bevegelse (motion) og null bufring." },
+					{ q: "Hvilken hastighet trenger jeg?", a: "Vi anbefaler minst 20 Mbps for en stabil 4K-opplevelse uten bufring i " + cityName + "." },
+					{ q: "Er det bindingstid?", a: "Nei, vi har ingen bindingstid på våre pakker. Du velger selv hvor lenge du vil bruke tjenesten." }
+				].map((item) => (
+					<details class="glass rounded-2xl p-6 group cursor-pointer border border-white/5 hover:border-white/10 transition-all">
+						<summary class="flex items-center justify-between font-bold text-lg list-none">
+							{item.q}
+							<HelpCircle class="w-5 h-5 text-primary group-open:rotate-180 transition-transform" />
+						</summary>
+						<p class="mt-4 text-gray-400 leading-relaxed border-t border-white/5 pt-4">
+							{item.a}
+						</p>
+					</details>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<UserReviewsSection />
+	<ContactForm />
+</Layout>

@@ -1,0 +1,57 @@
+---
+import { Tv, Globe, Zap, Film, MonitorPlay, Headphones } from 'lucide-astro';
+
+const features = [
+	{
+		title: "Alle Kanaler",
+		description: "Få tilgang til tusenvis av internasjonale kanaler, inkludert sport, nyheter og underholdning.",
+		icon: Tv
+	},
+	{
+		title: "Enormt VOD-bibliotek",
+		description: "Et enormt bibliotek med de nyeste filmene og seriene, alltid oppdatert med nytt innhold.",
+		icon: Film
+	},
+	{
+		title: "4K & Full HD",
+		description: "Opplev krystallklar bildekvalitet på alle dine enheter uten avbrudd.",
+		icon: MonitorPlay
+	},
+	{
+		title: "Premium Sport",
+		description: "Få med deg alle de store sportsbegivenhetene fra hele verden i høyeste kvalitet.",
+		icon: Zap
+	},
+	{
+		title: "Global Dekning",
+		description: "Vi tilbyr kanaler fra nesten alle land i verden, perfekt for alle nasjonaliteter.",
+		icon: Globe
+	},
+	{
+		title: "24/7 Kundestøtte",
+		description: "Vårt dedikerte team er tilgjengelig døgnet rundt for å hjelpe deg med alle spørsmål.",
+		icon: Headphones
+	}
+];
+---
+
+<section id="section-alpha" class="py-24 bg-bg-dark">
+	<div class="max-container">
+		<div class="text-center mb-20">
+			<h2 class="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight">Hvorfor velge oss?</h2>
+			<p class="text-gray-400 max-w-2xl mx-auto">Vi leverer den mest stabile og komplette IPTV-tjenesten i Norge med fokus på kvalitet og brukervennlighet.</p>
+		</div>
+
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 grid-layout-x">
+			{features.map((feature) => (
+				<div class="glass p-8 rounded-3xl hover:border-primary/50 transition-all group">
+					<div class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+						<feature.icon class="w-7 h-7 text-primary group-hover:text-white transition-colors" />
+					</div>
+					<h3 class="text-xl font-bold mb-3">{feature.title}</h3>
+					<p class="text-gray-400 text-sm leading-relaxed">{feature.description}</p>
+				</div>
+			))}
+		</div>
+	</div>
+</section>

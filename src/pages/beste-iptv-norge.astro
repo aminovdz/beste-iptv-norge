@@ -1,0 +1,221 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Star, ShieldCheck, Zap, Info, ArrowRight, User, Calendar, Check, X, Award, Shield, Globe, ChevronRight } from 'lucide-astro';
+
+const title = "Best IPTV Norge 2026 | Topp 3 IPTV-leverandører i Norge";
+const description = "Vi har testet og rangert Best IPTV Norge for 2026. Finn ut hvilken IPTV Norge tjeneste som er mest stabil og har flest kanaler.";
+
+const authorName = "Erik Johansen";
+const authorRole = "Senior Tech Analyst";
+const publishedDate = new Date(Date.now() - 15 * 24 * 60 * 60 * 1000).toLocaleDateString('no-NO', { day: 'numeric', month: 'long', year: 'numeric' });
+
+const itemListSchema = {
+	"@context": "https://schema.org",
+	"@type": "ItemList",
+	"itemListElement": [
+		{
+			"@type": "ListItem",
+			"position": 1,
+			"name": "iptv-norge.net",
+			"url": "https://iptv-norge.net"
+		}
+	]
+};
+---
+
+<Layout title={title} description={description}>
+	<script slot="head" type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+
+	<article class="pt-32 pb-24 max-container">
+		<header class="mb-16 text-center max-w-4xl mx-auto">
+			<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border-white/10 mb-8">
+				<Award class="w-4 h-4 text-primary" />
+				<span class="text-xs font-bold uppercase tracking-widest text-gray-300">Oppdatert for 2026</span>
+			</div>
+			<h1 class="text-5xl md:text-8xl font-black mb-8 leading-tight tracking-tighter">Beste IPTV Norge 2026:<br />Vår store test</h1>
+			
+			<div class="flex flex-wrap justify-center items-center gap-6 py-8 border-y border-glass-border">
+				<div class="flex items-center gap-3">
+					<div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
+						<User class="w-6 h-6 text-primary" />
+					</div>
+					<div class="text-left">
+						<p class="text-sm font-bold text-white leading-none">{authorName}</p>
+						<p class="text-xs text-gray-500 mt-1">{authorRole}</p>
+					</div>
+				</div>
+				<div class="flex items-center gap-2 text-gray-500 text-sm">
+					<Calendar class="w-4 h-4" />
+					Sist oppdatert: {publishedDate}
+				</div>
+			</div>
+		</header>
+
+		<div class="prose prose-invert max-w-none prose-p:text-gray-400 prose-headings:text-white mb-16">
+			<p class="text-xl leading-relaxed">
+				Markedet for IPTV i Norge har eksplodert de siste årene. Med hundrevis av leverandører som alle lover "stabil 4K" og "ingen bufring", er det vanskeligere enn noen gang å vite hvem man faktisk kan stole på. Etter å ha testet over 20 forskjellige tjenester over en periode på 6 måneder, har vi kåret vinnerne for 2026.
+			</p>
+		</div>
+
+		<details class="glass p-8 rounded-[32px] mb-20 cursor-pointer group border border-white/5 hover:border-white/10 transition-all">
+			<summary class="flex items-center justify-between font-bold text-xl text-gray-300">
+				<span class="flex items-center gap-3">
+					<Info class="w-6 h-6 text-primary" />
+					Vår testmetodikk
+				</span>
+				<ChevronRight class="w-6 h-6 group-open:rotate-90 transition-transform" />
+			</summary>
+			<div class="mt-6 text-base text-gray-400 space-y-6 border-t border-white/5 pt-6 leading-relaxed">
+				<p>Vi tar våre tester seriøst. For å sikre at du får den beste opplevelsen, har vi evaluert hver leverandør basert på følgende kriterier:</p>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+					<div class="flex gap-4">
+						<Shield class="w-8 h-8 text-primary shrink-0" />
+						<div>
+							<h4 class="text-white font-bold mb-2 text-lg">Stabilitet (40%)</h4>
+							<p class="text-sm">Vi overvåker strømmene under store sportsbegivenheter som Premier League og Champions League for å måle bufring og nedetid.</p>
+						</div>
+					</div>
+					<div class="flex gap-4">
+						<Globe class="w-8 h-8 text-primary shrink-0" />
+						<div>
+							<h4 class="text-white font-bold mb-2 text-lg">Innhold (30%)</h4>
+							<p class="text-sm">Vi sjekker om alle norske kanaler (NRK, TV2, TVNorge) er tilgjengelige i Full HD eller 4K, samt utvalget av internasjonale kanaler.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</details>
+
+		<!-- Comparison Table -->
+		<section class="mb-24 overflow-x-auto">
+			<h2 class="text-3xl font-bold mb-8 text-center">Sammenligning av topp-leverandører</h2>
+			<table class="w-full glass rounded-3xl border-collapse overflow-hidden">
+				<thead>
+					<tr class="bg-white/5 border-b border-glass-border">
+						<th class="p-6 text-left">Funksjon</th>
+						<th class="p-6 text-center text-primary font-black"><a href="/" class="hover:underline">iptv-norge.net</a></th>
+						<th class="p-6 text-center text-gray-500"><a href="https://iptvnordic.me" target="_blank" rel="nofollow" class="hover:underline">iptvnordic.me</a></th>
+						<th class="p-6 text-center text-gray-500"><a href="https://iptvnorway.cloud" target="_blank" rel="nofollow" class="hover:underline">iptvnorway.cloud</a></th>
+					</tr>
+				</thead>
+				<tbody class="text-sm">
+					<tr class="border-b border-white/5">
+						<td class="p-6 font-bold">Norske Kanaler</td>
+						<td class="p-6 text-center"><Check class="w-5 h-5 text-green-500 mx-auto" /></td>
+						<td class="p-6 text-center"><Check class="w-5 h-5 text-green-500 mx-auto" /></td>
+						<td class="p-6 text-center"><Check class="w-5 h-5 text-green-500 mx-auto" /></td>
+					</tr>
+					<tr class="border-b border-white/5">
+						<td class="p-6 font-bold">Premier League 4K</td>
+						<td class="p-6 text-center"><Check class="w-5 h-5 text-green-500 mx-auto" /></td>
+						<td class="p-6 text-center"><X class="w-5 h-5 text-red-500 mx-auto" /></td>
+						<td class="p-6 text-center"><X class="w-5 h-5 text-red-500 mx-auto" /></td>
+					</tr>
+					<tr class="border-b border-white/5">
+						<td class="p-6 font-bold">WhatsApp Support</td>
+						<td class="p-6 text-center"><Check class="w-5 h-5 text-green-500 mx-auto" /></td>
+						<td class="p-6 text-center"><Check class="w-5 h-5 text-green-500 mx-auto" /></td>
+						<td class="p-6 text-center"><X class="w-5 h-5 text-red-500 mx-auto" /></td>
+					</tr>
+					<tr>
+						<td class="p-6 font-bold">Pris pr måned</td>
+						<td class="p-6 text-center font-bold text-white">Fra 80 kr</td>
+						<td class="p-6 text-center text-gray-500">Fra 110 kr</td>
+						<td class="p-6 text-center text-gray-500">Fra 99 kr</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+
+		<div class="space-y-20">
+			<!-- Rank #1: iptv-norge.net -->
+			<section class="glass p-8 md:p-16 rounded-[48px] border-2 border-primary/30 relative overflow-hidden bg-primary/5">
+				<div class="absolute top-0 right-0 bg-primary text-white text-sm font-black px-8 py-3 rounded-bl-3xl uppercase tracking-widest z-10 shadow-xl">
+					Vinner: Best i Test 2026
+				</div>
+
+				<div class="flex flex-col md:flex-row gap-12 items-center mb-12">
+					<div class="text-8xl font-black text-primary">#1</div>
+					<div class="flex-1 text-center md:text-left">
+						<h2 class="text-4xl md:text-5xl font-black mb-4"><a href="/" class="hover:text-primary transition-colors">iptv-norge.net</a></h2>
+						<div class="flex items-center justify-center md:justify-start gap-1 text-primary mb-6">
+							{[...Array(5)].map(() => <Star class="w-6 h-6 fill-primary" />)}
+							<span class="ml-3 text-white font-black text-xl">5.0 / 5.0</span>
+						</div>
+						<p class="text-xl text-gray-300 leading-relaxed max-w-2xl">
+							Den suverene vinneren i år. Ingen andre tjenester kan matche kombinasjonen av stabilitet, bildekvalitet og pris.
+						</p>
+					</div>
+					<div class="flex flex-col gap-4">
+						<a href="https://wa.me/18036582620" class="btn-primary flex items-center justify-center gap-3 group px-10 py-5 text-lg shadow-2xl">
+							Besøk Testvinneren
+							<ArrowRight class="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+						</a>
+						<p class="text-center text-xs text-gray-500 font-bold uppercase tracking-tighter">Bruk rabattkode: TEST2026</p>
+					</div>
+				</div>
+
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t border-white/5">
+					<div>
+						<h3 class="font-bold text-2xl text-white mb-6">Høydepunkter:</h3>
+						<ul class="space-y-4">
+							{[
+								"Optimalisert for norske internettforhold",
+								"Full tilgang til alt av sport i 4K Ultra HD",
+								"Stort utvalg av norske serier og filmer",
+								"Rask aktivering via WhatsApp (under 15 min)",
+								"Enkelt oppsett på alle enheter"
+							].map((item) => (
+								<li class="flex items-center gap-3 text-gray-300">
+									<Check class="w-5 h-5 text-green-500 shrink-0" />
+									{item}
+								</li>
+							))}
+						</ul>
+					</div>
+					<div class="relative rounded-3xl overflow-hidden border border-white/10 group shadow-2xl">
+						<img 
+							src="/images/hero-iptv.webp" 
+							alt="Beste IPTV Norge Testvinner Sammenligning" 
+							class="w-full h-full object-cover transition-transform group-hover:scale-110 duration-700"
+							width="500"
+							height="400"
+						/>
+						<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+						<div class="absolute bottom-6 left-6 right-6">
+							<p class="text-sm font-bold text-white italic mb-2">"Den mest stabile strømmen jeg har opplevd på 5 år."</p>
+							<p class="text-xs text-primary font-black uppercase tracking-widest">- Erik Johansen, Tech Analyst</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Detailed Review Text -->
+			<section class="prose prose-invert max-w-none prose-p:text-gray-400 prose-headings:text-white mt-24">
+				<h2>Hvorfor <a href="/" class="text-primary hover:underline">iptv-norge.net</a> vant testen for Best IPTV Norge</h2>
+				<p>Det som virkelig skiller <a href="/" class="text-primary hover:underline">iptv-norge.net</a> fra konkurrentene er deres dedikasjon til det norske markedet. Mens mange leverandører bruker generiske servere, har denne vinneren av Best IPTV Norge servere som er optimalisert for Norden.</p>
+				
+				<h3>Bildekvalitet som faktisk er 4K</h3>
+				<p>Mange lover 4K, men leverer i virkeligheten oppskalert Full HD. Under vår test sjekket vi bitraten på sportskanalene, og vi kan bekrefte at vinneren leverer en krystallklar strøm som er perfekt for store TV-skjermer.</p>
+				
+				<div class="bg-white/5 border border-white/10 p-10 rounded-[32px] my-16">
+					<h3 class="text-2xl font-bold mb-6">Ofte stilte spørsmål om testen</h3>
+					<div class="space-y-6">
+						<div>
+							<h4 class="font-bold text-white mb-2">Er det lovlig å bruke IPTV?</h4>
+							<p class="text-sm">Tjenesten i seg selv er en teknologisk plattform. Vi anbefaler alltid våre lesere å sette seg inn i gjeldende lovverk i sitt område.</p>
+						</div>
+						<div>
+							<h4 class="font-bold text-white mb-2">Hvor raskt internett trenger jeg?</h4>
+							<p class="text-sm">For en stabil 4K-opplevelse anbefaler vi minst 25-30 Mbps stabil linjehastighet.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<footer class="mt-24 text-center border-t border-glass-border pt-12">
+			<p class="text-gray-500 text-sm italic">Ansvarsfraskrivelse: Denne testen er basert på våre subjektive erfaringer og tekniske målinger. Resultater kan variere avhengig av din internettilkobling og enhet.</p>
+		</footer>
+	</article>
+</Layout>

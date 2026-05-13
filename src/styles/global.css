@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #EF2B2D;
+  --color-secondary: #002868;
+  --color-bg-dark: #0A0E17;
+  --color-glass: rgba(255, 255, 255, 0.05);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+  
+  --font-sans: "Inter", "Outfit", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+
+  @keyframes pulse-gentle {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+  --animate-pulse-gentle: pulse-gentle 2s ease-in-out infinite;
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  --animate-fade-up: fade-up 0.5s ease-out forwards;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-bg-dark text-white font-sans antialiased;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-glass backdrop-blur-md border border-glass-border;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-linear-to-r from-primary to-secondary;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-primary hover:bg-red-700 text-white rounded-full font-bold transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/20;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-secondary hover:bg-blue-800 text-white rounded-full font-bold transition-all hover:scale-105 active:scale-95 shadow-lg shadow-secondary/20;
+  }
+
+  .max-container {
+    @apply max-w-7xl mx-auto px-4;
+  }
+}

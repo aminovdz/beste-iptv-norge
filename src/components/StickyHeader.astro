@@ -1,0 +1,76 @@
+---
+import { Menu, X } from 'lucide-astro';
+---
+
+<header id="main-nav-alpha" class="fixed top-0 left-0 w-full z-50 transition-transform duration-300 transform translate-y-0">
+	<nav class="glass mx-auto mt-4 px-6 py-3 rounded-full flex justify-between items-center max-w-5xl">
+		<a href="/" class="text-xl font-bold tracking-tighter flex items-center gap-2">
+			<span class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-xs">NO</span>
+			<span class="hidden sm:inline">iptv-norge.net</span>
+		</a>
+
+		<div class="hidden md:flex items-center gap-8 text-sm font-medium">
+			<a href="/" class="hover:text-primary transition-colors">Hjem</a>
+			<a href="/#section-pricing" class="hover:text-primary transition-colors">Priser</a>
+			<a href="/setup" class="hover:text-primary transition-colors">Installasjon</a>
+			<a href="/blog" class="hover:text-primary transition-colors">Blogg</a>
+			<a href="/contact" class="hover:text-primary transition-colors">Kontakt</a>
+			<a href="https://wa.me/18036582620" target="_blank" rel="noopener noreferrer" class="btn-primary py-2 px-5 text-xs">Kjøp Nå</a>
+		</div>
+
+		<button id="mobile-toggle" class="md:hidden p-2" aria-label="Toggle Menu">
+			<Menu class="w-6 h-6" />
+		</button>
+	</nav>
+
+	<!-- Mobile Menu -->
+	<div id="mobile-menu" class="fixed inset-0 bg-bg-dark/95 z-[60] flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-opacity duration-300">
+		<button id="mobile-close" class="absolute top-8 right-8 p-2">
+			<X class="w-8 h-8" />
+		</button>
+		<a href="/" class="text-2xl font-bold hover:text-primary transition-colors">Hjem</a>
+		<a href="/#section-pricing" class="text-2xl font-bold hover:text-primary transition-colors">Priser</a>
+		<a href="/setup" class="text-2xl font-bold hover:text-primary transition-colors">Installasjon</a>
+		<a href="/blog" class="text-2xl font-bold hover:text-primary transition-colors">Blogg</a>
+		<a href="/contact" class="text-2xl font-bold hover:text-primary transition-colors">Kontakt</a>
+		<a href="https://wa.me/18036582620" target="_blank" rel="noopener noreferrer" class="btn-primary text-xl">Kjøp Nå</a>
+	</div>
+</header>
+
+<script>
+	const header = document.getElementById('main-nav-alpha');
+	const mobileToggle = document.getElementById('mobile-toggle');
+	const mobileClose = document.getElementById('mobile-close');
+	const mobileMenu = document.getElementById('mobile-menu');
+	const mobileLinks = mobileMenu?.querySelectorAll('a');
+
+	let lastScroll = 0;
+
+	window.addEventListener('scroll', () => {
+		const currentScroll = window.pageYOffset;
+		if (currentScroll <= 0) {
+			header?.classList.remove('-translate-y-full');
+			return;
+		}
+
+		if (currentScroll > lastScroll && !header?.classList.contains('-translate-y-full')) {
+			// Scroll Down
+			header?.classList.add('-translate-y-full');
+		} else if (currentScroll < lastScroll && header?.classList.contains('-translate-y-full')) {
+			// Scroll Up
+			header?.classList.remove('-translate-y-full');
+		}
+		lastScroll = currentScroll;
+	});
+
+	mobileToggle?.addEventListener('click', () => {
+		mobileMenu?.classList.remove('opacity-0', 'pointer-events-none');
+	});
+
+	const closeMenu = () => {
+		mobileMenu?.classList.add('opacity-0', 'pointer-events-none');
+	};
+
+	mobileClose?.addEventListener('click', closeMenu);
+	mobileLinks?.forEach(link => link.addEventListener('click', closeMenu));
+</script>

@@ -1,0 +1,118 @@
+---
+import { X, Clock, Copy, Check } from 'lucide-astro';
+---
+
+<div id="exit-modal" class="fixed inset-0 z-[110] flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-500 bg-black/80 backdrop-blur-md">
+	<div class="relative bg-linear-to-br from-primary to-secondary p-1 rounded-3xl max-w-lg w-full">
+		<div class="bg-bg-dark rounded-[22px] p-8 md:p-12 text-center overflow-hidden relative">
+			<!-- Decoration -->
+			<div class="absolute -top-10 -right-10 w-40 h-40 bg-primary/20 blur-3xl rounded-full"></div>
+			<div class="absolute -bottom-10 -left-10 w-40 h-40 bg-secondary/20 blur-3xl rounded-full"></div>
+
+			<button id="close-exit" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
+				<X class="w-6 h-6" />
+			</button>
+
+			<div class="relative z-10">
+				<h2 class="text-3xl md:text-4xl font-extrabold mb-4 tracking-tight">🔥 VENT! Ikke gå glipp av dette!</h2>
+				<p class="text-xl mb-8 text-gray-300">Få en eksklusiv <span class="text-primary font-bold">10% rabatt</span> på ditt første abonnement.</p>
+
+				<div class="bg-white/5 border border-white/10 rounded-2xl p-6 mb-8">
+					<p class="text-sm text-gray-400 mb-2 uppercase tracking-widest font-bold">Rabattkode</p>
+					<div class="flex items-center justify-center gap-4">
+						<span class="text-3xl font-mono font-bold text-white">WELCOME10</span>
+						<button id="copy-code" class="p-2 hover:bg-white/10 rounded-lg transition-colors group">
+							<Copy id="copy-icon" class="w-6 h-6 text-primary" />
+							<Check id="check-icon" class="w-6 h-6 text-green-500 hidden" />
+						</button>
+					</div>
+				</div>
+
+				<div class="flex items-center justify-center gap-3 mb-8 text-primary font-bold">
+					<Clock class="w-5 h-5 animate-pulse" />
+					<span>Dette tilbudet utløper om: <span id="timer">15:00</span></span>
+				</div>
+
+				<a href="https://wa.me/18036582620?text=Jeg%20vil%20ha%2010%%20rabatt%20med%20koden%20WELCOME10" target="_blank" rel="noopener noreferrer" class="btn-primary w-full py-5 text-xl block">
+					Hent min 10% rabatt
+				</a>
+
+				<button id="no-thanks" class="mt-6 text-sm text-gray-500 hover:text-gray-300 underline underline-offset-4">
+					Nei takk, jeg betaler full pris
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	const modal = document.getElementById('exit-modal');
+	const closeBtn = document.getElementById('close-exit');
+	const noThanks = document.getElementById('no-thanks');
+	const copyBtn = document.getElementById('copy-code');
+	const timerEl = document.getElementById('timer');
+
+	let shown = false;
+
+	const showModal = () => {
+		if (shown || sessionStorage.getItem('exit-popup-shown')) return;
+		modal?.classList.remove('opacity-0', 'pointer-events-none');
+		shown = true;
+		sessionStorage.setItem('exit-popup-shown', 'true');
+		startTimer();
+	};
+
+	const hideModal = () => {
+		modal?.classList.add('opacity-0', 'pointer-events-none');
+	};
+
+	// Desktop Exit Intent
+	document.addEventListener('mouseout', (e) => {
+		if (e.clientY < 20) {
+			showModal();
+		}
+	});
+
+	// Mobile Upward Scroll Velocity / Idle
+	let lastScroll = window.scrollY;
+	let idleTimer: any;
+
+	window.addEventListener('scroll', () => {
+		const currentScroll = window.scrollY;
+		const velocity = lastScroll - currentScroll;
+		if (velocity > 100) { // Fast upward scroll
+			showModal();
+		}
+		lastScroll = currentScroll;
+		
+		// Reset idle timer on scroll
+		clearTimeout(idleTimer);
+		idleTimer = setTimeout(showModal, 45000);
+	});
+
+	idleTimer = setTimeout(showModal, 45000);
+
+	closeBtn?.addEventListener('click', hideModal);
+	noThanks?.addEventListener('click', hideModal);
+
+	copyBtn?.addEventListener('click', () => {
+		navigator.clipboard.writeText('WELCOME10');
+		document.getElementById('copy-icon')?.classList.add('hidden');
+		document.getElementById('check-icon')?.classList.remove('hidden');
+		setTimeout(() => {
+			document.getElementById('copy-icon')?.classList.remove('hidden');
+			document.getElementById('check-icon')?.classList.add('hidden');
+		}, 2000);
+	});
+
+	function startTimer() {
+		let time = 15 * 60;
+		setInterval(() => {
+			if (time <= 0) return;
+			time--;
+			const mins = Math.floor(time / 60);
+			const secs = time % 60;
+			if (timerEl) timerEl.innerText = `${mins}:${secs.toString().padStart(2, '0')}`;
+		}, 1000);
+	}
+</script>

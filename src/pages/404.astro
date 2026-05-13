@@ -1,0 +1,48 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Home, Search, ArrowRight } from 'lucide-astro';
+
+const title = "404 - Siden ble ikke funnet | iptv-norge.net";
+const description = "Beklager, vi fant ikke siden du lette etter. Gå tilbake til forsiden for å finne den beste IPTV i Norge.";
+---
+
+<Layout title={title} description={description}>
+	<section class="min-h-[80vh] flex items-center justify-center pt-32 pb-24 max-container text-center">
+		<div class="max-w-2xl mx-auto">
+			<div class="text-[150px] md:text-[200px] font-black leading-none text-transparent bg-clip-text bg-gradient-to-b from-primary to-primary/20 mb-8 animate-pulse-gentle">
+				404
+			</div>
+			
+			<h1 class="text-4xl md:text-5xl font-black mb-6 tracking-tighter">Opps! Siden eksisterer ikke.</h1>
+			
+			<p class="text-xl text-gray-400 mb-12">
+				Det ser ut til at kanalen du prøver å nå er utilgjengelig. Siden kan ha blitt flyttet, slettet, eller så har du kanskje skrevet feil adresse.
+			</p>
+			
+			<div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+				<a href="/" class="btn-primary inline-flex items-center gap-3 px-8 py-4">
+					<Home class="w-5 h-5" />
+					Gå til forsiden
+				</a>
+				
+				<a href="/blog" class="glass inline-flex items-center gap-3 px-8 py-4 rounded-full font-bold hover:text-primary transition-colors">
+					<Search class="w-5 h-5" />
+					Søk i bloggen
+				</a>
+			</div>
+			
+			<div class="mt-16 pt-16 border-t border-glass-border">
+				<p class="text-sm text-gray-500 mb-6">Leter du etter en spesifikk IPTV-tjeneste?</p>
+				<div class="flex justify-center gap-4">
+					<a href="/beste-iptv-norge" class="text-gray-300 hover:text-primary transition-colors flex items-center gap-1 font-bold text-sm">
+						Se Best i Test 2026 <ArrowRight class="w-3 h-3" />
+					</a>
+					<span class="text-glass-border">|</span>
+					<a href="/setup" class="text-gray-300 hover:text-primary transition-colors flex items-center gap-1 font-bold text-sm">
+						Installasjonsguide <ArrowRight class="w-3 h-3" />
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>
