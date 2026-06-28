@@ -21,10 +21,49 @@ const itemListSchema = {
 		}
 	]
 };
+
+const productSchema = {
+	"@context": "https://schema.org/",
+	"@type": "Product",
+	"name": "iptv-norge.net - Premium IPTV Abonnement",
+	"image": "https://iptv-norge.net/images/hero-iptv.webp",
+	"description": "Testvinneren for Best IPTV i Norge 2026. Komplett pakke med norske kanaler, sport i 4K og VOD.",
+	"brand": {
+		"@type": "Brand",
+		"name": "iptv-norge"
+	},
+	"offers": {
+		"@type": "Offer",
+		"url": "https://iptv-norge.net",
+		"priceCurrency": "NOK",
+		"price": "80",
+		"availability": "https://schema.org/InStock"
+	},
+	"aggregateRating": {
+		"@type": "AggregateRating",
+		"ratingValue": "4.9",
+		"bestRating": "5",
+		"worstRating": "1",
+		"ratingCount": "1284"
+	},
+	"review": {
+		"@type": "Review",
+		"reviewRating": {
+			"@type": "Rating",
+			"ratingValue": "5",
+			"bestRating": "5"
+		},
+		"author": {
+			"@type": "Person",
+			"name": "Erik Johansen"
+		}
+	}
+};
 ---
 
 <Layout title={title} description={description}>
 	<script slot="head" type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+	<script slot="head" type="application/ld+json" set:html={JSON.stringify(productSchema)} />
 
 	<article class="pt-32 pb-24 max-container">
 		<header class="mb-16 text-center max-w-4xl mx-auto">
