@@ -78,11 +78,18 @@ const organizationSchema = {
 					</nav>
 				</div>
 			</div>
-			<div class="max-container mt-12 pt-8 border-t border-glass-border flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
-				<p>© {new Date().getFullYear()} iptv-norge.net. Alle rettigheter reservert.</p>
-				<div class="flex gap-4">
-					<a href="/privacy" class="hover:text-gray-300">Personvern</a>
-					<a href="/terms" class="hover:text-gray-300">Vilkår</a>
+			<div class="max-container mt-12 pt-8 border-t border-glass-border flex flex-col gap-6">
+				<div class="text-center md:text-left text-xs text-gray-500">
+					<p class="font-bold text-gray-400 mb-1">Ansvarsfraskrivelse (DMCA)</p>
+					<p>iptv-norge.net er utelukkende en informasjonsportal. Vi eier, hoster, eller lagrer ikke noe medieinnhold eller strømmer. Alt innhold tilhører sine respektive eiere. Ved opphavsrettslige spørsmål, vennligst rett krav direkte til den respektive tredjeparts vertsleverandøren.</p>
+				</div>
+				<div class="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500 border-t border-glass-border/30 pt-6">
+					<p>© {new Date().getFullYear()} iptv-norge.net. Alle rettigheter reservert.</p>
+					<div class="flex gap-4">
+						<a href="/dmca" class="hover:text-gray-300">DMCA</a>
+						<a href="/privacy" class="hover:text-gray-300">Personvern</a>
+						<a href="/terms" class="hover:text-gray-300">Vilkår</a>
+					</div>
 				</div>
 			</div>
 		</footer>

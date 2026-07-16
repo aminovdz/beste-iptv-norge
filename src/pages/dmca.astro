@@ -1,0 +1,64 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { ShieldAlert } from 'lucide-astro';
+
+const title = "DMCA Ansvarsfraskrivelse | IPTV Norge";
+const description = "Les vår DMCA-ansvarsfraskrivelse. iptv-norge.net respekterer andres opphavsrett og fungerer kun som en informasjonsportal uten å hoste innhold.";
+---
+
+<Layout title={title} description={description}>
+	<div class="pt-32 pb-20">
+		<div class="max-container max-w-4xl">
+			<div class="bg-black/40 border border-glass-border rounded-2xl p-8 md:p-12 relative overflow-hidden">
+				<div class="absolute top-0 right-0 p-8 opacity-10">
+					<ShieldAlert class="w-32 h-32 text-primary" />
+				</div>
+				
+				<h1 class="text-4xl md:text-5xl font-bold mb-8 flex items-center gap-4">
+					<ShieldAlert class="w-10 h-10 text-primary" />
+					DMCA Ansvarsfraskrivelse
+				</h1>
+				
+				<div class="prose prose-invert prose-lg max-w-none">
+					<p class="text-gray-300 lead">
+						Sist oppdatert: {new Date().toLocaleDateString('no-NO')}
+					</p>
+
+					<p>
+						Vi respekterer andres immaterielle rettigheter og forventer at våre brukere gjør det samme. I henhold til Digital Millennium Copyright Act (DMCA) og andre gjeldende internasjonale opphavsrettslover, har vi vedtatt en policy om å fjerne innhold som krenker andres opphavsrett, forutsatt at vi mottar en gyldig melding om dette.
+					</p>
+
+					<h2 class="text-2xl font-bold mt-8 mb-4 text-white">Ansvarsfraskrivelse</h2>
+					<p>
+						<strong>iptv-norge.net er ikke vert for, leverer, arkiverer, lagrer eller distribuerer media av noe slag.</strong> Vi fungerer utelukkende som en informasjonsportal og plattform for anmeldelser.
+					</p>
+					<p>
+						Vi verken eier, kontrollerer, administrerer eller har tilgang til noen av serverne eller mediestrømmene som kan være tilgjengelige gjennom tredjeparts tjenesteleverandører. Vi påtar oss intet ansvar for innholdet som sendes, distribueres eller gjøres tilgjengelig av tredjeparter.
+					</p>
+					<p>
+						Alle videoer, filmer, TV-kanaler, logoer og annet innhold er opphavsrettsbeskyttet av sine respektive eiere og rettighetshavere. Vi oppfordrer alle brukere til å undersøke lovligheten av tjenestene de velger å bruke i sitt respektive land eller jurisdiksjon.
+					</p>
+
+					<h2 class="text-2xl font-bold mt-8 mb-4 text-white">Fjerning av innhold</h2>
+					<p>
+						Siden <strong>iptv-norge.net</strong> ikke hoster noe filbasert eller strømmebasert innhold på våre egne servere, er det ikke mulig for oss å fjerne opphavsrettsbeskyttet materiale fra nettet.
+					</p>
+					<p>
+						Hvis du mener at opphavsrettsbeskyttet materiale distribueres ulovlig, må du rette din DMCA-klage direkte til den aktuelle nettverksleverandøren (vertsleverandøren) eller domeneeieren der det ulovlige materialet faktisk er lagret eller hostet. Det å sende en DMCA-klage til oss vil ikke løse problemet, ettersom vi ikke har teknisk mulighet til å fjerne innhold vi ikke er vert for.
+					</p>
+
+					<h2 class="text-2xl font-bold mt-8 mb-4 text-white">Kontakt</h2>
+					<p>
+						Selv om vi ikke er vert for noe innhold, tar vi brudd på opphavsretten på alvor. Hvis du mener at en lenke på vår nettside direkte krenker dine rettigheter, og du ønsker at vi fjerner selve referansen/lenken til tredjepartstjenesten fra våre sider, kan du kontakte oss på:
+					</p>
+					<p class="font-bold text-primary">
+						contact@iptv-norge.net
+					</p>
+					<p class="text-sm text-gray-400 mt-4">
+						Vennligst tillat opptil 7 virkedager for at vi skal kunne gjennomgå og behandle din forespørsel om fjerning av lenker.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</Layout>
