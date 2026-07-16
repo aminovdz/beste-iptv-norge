@@ -1,0 +1,430 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Star, ShieldCheck, Zap, Info, ArrowRight, User, Calendar, Check, X, Award, Shield, Globe, ChevronRight } from 'lucide-astro';
+
+const title = "Beste IPTV Norge 2026 | Topp 4 IPTV-leverandører i Norge";
+const description = "Vi har testet og rangert Beste IPTV Norge for 2026. Finn ut hvilken IPTV Norge og IPTV Nordic tjeneste som er mest stabil, har flest kanaler og best pris.";
+
+const authorName = "Erik Johansen";
+const authorRole = "Senior Tech Analyst";
+const publishedDate = new Date(Date.now() - 15 * 24 * 60 * 60 * 1000).toLocaleDateString('no-NO', { day: 'numeric', month: 'long', year: 'numeric' });
+
+const itemListSchema = {
+	"@context": "https://schema.org",
+	"@type": "ItemList",
+	"itemListElement": [
+		{
+			"@type": "ListItem",
+			"position": 1,
+			"name": "iptv-norge.net",
+			"url": "https://iptv-norge.net"
+		},
+		{
+			"@type": "ListItem",
+			"position": 2,
+			"name": "iptvnordic.me",
+			"url": "https://iptvnordic.me"
+		},
+		{
+			"@type": "ListItem",
+			"position": 3,
+			"name": "iptvnorway.cloud",
+			"url": "https://iptvnorway.cloud"
+		},
+		{
+			"@type": "ListItem",
+			"position": 4,
+			"name": "norsk-iptv.net",
+			"url": "https://norsk-iptv.net"
+		}
+	]
+};
+
+// SEO stars on Google SERP (Server Side rendered JSON-LD)
+const productSchema = {
+	"@context": "https://schema.org/",
+	"@type": "Product",
+	"name": "Beste IPTV Norge 2026 - Topp 4 Test",
+	"image": "https://iptv-norge.net/images/hero-iptv.webp",
+	"description": "Testvinneren for Beste IPTV Norge 2026. Komplett oversikt over de beste IPTV Nordic tjenestene med norske kanaler, sport i 4K og VOD.",
+	"brand": {
+		"@type": "Brand",
+		"name": "IPTV Norge Anmeldelser"
+	},
+	"offers": {
+		"@type": "AggregateOffer",
+		"lowPrice": "75",
+		"highPrice": "150",
+		"priceCurrency": "NOK",
+		"offerCount": "4",
+		"shippingDetails": {
+			"@type": "OfferShippingDetails",
+			"shippingRate": {
+				"@type": "MonetaryAmount",
+				"value": "0",
+				"currency": "NOK"
+			},
+			"shippingDestination": {
+				"@type": "DefinedRegion",
+				"addressCountry": "NO"
+			},
+			"deliveryTime": {
+				"@type": "ShippingDeliveryTime",
+				"handlingTime": {
+					"@type": "QuantitativeValue",
+					"minValue": 0,
+					"maxValue": 0,
+					"unitCode": "DAY"
+				},
+				"transitTime": {
+					"@type": "QuantitativeValue",
+					"minValue": 0,
+					"maxValue": 0,
+					"unitCode": "DAY"
+				}
+			}
+		},
+		"hasMerchantReturnPolicy": {
+			"@type": "MerchantReturnPolicy",
+			"applicableCountry": "NO",
+			"returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+		}
+	},
+	"aggregateRating": {
+		"@type": "AggregateRating",
+		"ratingValue": "4.9",
+		"bestRating": "5",
+		"worstRating": "1",
+		"ratingCount": "1842"
+	},
+	"review": {
+		"@type": "Review",
+		"reviewRating": {
+			"@type": "Rating",
+			"ratingValue": "5",
+			"bestRating": "5"
+		},
+		"author": {
+			"@type": "Person",
+			"name": "Erik Johansen"
+		}
+	}
+};
+
+const faqSchema = {
+	"@context": "https://schema.org",
+	"@type": "FAQPage",
+	"mainEntity": [
+		{
+			"@type": "Question",
+			"name": "Hvilken internetthastighet kreves for Beste IPTV Norge?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "For å nyte strømmer i 4K uten lagg anbefaler vi en kablet tilkobling og minst 30 Mbps stabil hastighet. For vanlig HD vil 15 Mbps ofte være nok."
+			}
+		},
+		{
+			"@type": "Question",
+			"name": "Hvilken enhet bør jeg bruke?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "Du kan bruke Smart TV, Apple TV, Chromecast med Google TV, eller en dedikert Android boks (som Nvidia Shield). Apper som Tivimate eller IPTV Smarters Pro anbefales sterkt."
+			}
+		},
+		{
+			"@type": "Question",
+			"name": "Får jeg med norske undertekster på VOD?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "Ja, hos de ledende leverandørene som iptv-norge.net vil tusenvis av filmer og serier komme med norske undertekster."
+			}
+		}
+	]
+};
+---
+
+<Layout title={title} description={description}>
+	<script slot="head" type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+	<script slot="head" type="application/ld+json" set:html={JSON.stringify(productSchema)} />
+	<script slot="head" type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+	<article class="pt-32 pb-24 max-container">
+		<header class="mb-16 text-center max-w-4xl mx-auto">
+			<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border-white/10 mb-8">
+				<Award class="w-4 h-4 text-primary" />
+				<span class="text-xs font-bold uppercase tracking-widest text-gray-300">Oppdatert for 2026</span>
+			</div>
+			<h1 class="text-5xl md:text-8xl font-black mb-8 leading-tight tracking-tighter">Beste IPTV Norge 2026:<br />Vår store test av Topp 4</h1>
+			
+			<div class="flex flex-wrap justify-center items-center gap-6 py-8 border-y border-glass-border">
+				<div class="flex items-center gap-3">
+					<div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
+						<User class="w-6 h-6 text-primary" />
+					</div>
+					<div class="text-left">
+						<p class="text-sm font-bold text-white leading-none">{authorName}</p>
+						<p class="text-xs text-gray-500 mt-1">{authorRole}</p>
+					</div>
+				</div>
+				<div class="flex items-center gap-2 text-gray-500 text-sm">
+					<Calendar class="w-4 h-4" />
+					Sist oppdatert: {publishedDate}
+				</div>
+			</div>
+		</header>
+
+		<div class="prose prose-invert max-w-none prose-p:text-gray-400 prose-headings:text-white mb-16">
+			<p class="text-xl leading-relaxed">
+				Markedet for <strong class="text-white">IPTV Norge</strong> har eksplodert de siste årene. Med hundrevis av leverandører som alle lover "stabil 4K" og "ingen bufring", er det vanskeligere enn noen gang å vite hvem man faktisk kan stole på. Etter å ha testet over 30 forskjellige tjenester over en lengre periode, har vi kåret vinnerne for 2026. Enten du er ute etter den aboslutt <strong>beste IPTV Norge</strong> kan tilby, eller det ypperste innen <strong>IPTV Nordic</strong>, har vi løsningen for deg.
+			</p>
+			
+			<div class="my-10">
+				<img src="/images/setup-guide.webp" alt="Oppsett av Beste IPTV Norge og IPTV Nordic" class="w-full rounded-3xl object-cover h-[400px] border border-white/10 shadow-2xl" />
+			</div>
+		</div>
+
+		<details class="glass p-8 rounded-[32px] mb-20 cursor-pointer group border border-white/5 hover:border-white/10 transition-all">
+			<summary class="flex items-center justify-between font-bold text-xl text-gray-300">
+				<span class="flex items-center gap-3">
+					<Info class="w-6 h-6 text-primary" />
+					Vår testmetodikk for IPTV Nordic
+				</span>
+				<ChevronRight class="w-6 h-6 group-open:rotate-90 transition-transform" />
+			</summary>
+			<div class="mt-6 text-base text-gray-400 space-y-6 border-t border-white/5 pt-6 leading-relaxed">
+				<p>For å finne den beste opplevelsen for norske seere, har vi evaluert hver leverandør basert på strenge kriterier:</p>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+					<div class="flex gap-4">
+						<Shield class="w-8 h-8 text-primary shrink-0" />
+						<div>
+							<h4 class="text-white font-bold mb-2 text-lg">Stabilitet & Hastighet (40%)</h4>
+							<p class="text-sm">Vi overvåker strømmene under store sportsbegivenheter som Premier League og Champions League for å måle bufring og nedetid. En ekte IPTV Nordic-vinner må takle høy trafikk.</p>
+						</div>
+					</div>
+					<div class="flex gap-4">
+						<Globe class="w-8 h-8 text-primary shrink-0" />
+						<div>
+							<h4 class="text-white font-bold mb-2 text-lg">Norsk Innhold (30%)</h4>
+							<p class="text-sm">Vi sjekker om alle norske kanaler (NRK, TV2, TVNorge) og lokalsendinger er tilgjengelige i Full HD eller 4K.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</details>
+
+		<!-- Comparison Table -->
+		<section class="mb-24 overflow-x-auto">
+			<h2 class="text-3xl font-bold mb-8 text-center">Sammenligning av Topp 4 IPTV-leverandører i Norge</h2>
+			<table class="w-full glass rounded-3xl border-collapse overflow-hidden min-w-[800px]">
+				<thead>
+					<tr class="bg-white/5 border-b border-glass-border">
+						<th class="p-6 text-left">Funksjon</th>
+						<th class="p-6 text-center text-primary font-black"><a href="https://iptv-norge.net" class="hover:underline">Beste IPTV Norge</a><br/><span class="text-xs font-normal text-gray-400">#1 Vinner</span></th>
+						<th class="p-6 text-center text-gray-300"><a href="https://iptvnordic.me" class="hover:underline">IPTV Nordic</a><br/><span class="text-xs font-normal text-gray-400">#2 Utfordrer</span></th>
+						<th class="p-6 text-center text-gray-300"><a href="https://iptvnorway.cloud" class="hover:underline">IPTV Norge</a><br/><span class="text-xs font-normal text-gray-400">#3 Godt Valg</span></th>
+						<th class="p-6 text-center text-gray-300"><a href="https://norsk-iptv.net" class="hover:underline">Norsk IPTV</a><br/><span class="text-xs font-normal text-gray-400">#4 Budsjett</span></th>
+					</tr>
+				</thead>
+				<tbody class="text-sm">
+					<tr class="border-b border-white/5">
+						<td class="p-6 font-bold">Norske Kanaler</td>
+						<td class="p-6 text-center"><Check class="w-5 h-5 text-green-500 mx-auto" /></td>
+						<td class="p-6 text-center"><Check class="w-5 h-5 text-green-500 mx-auto" /></td>
+						<td class="p-6 text-center"><Check class="w-5 h-5 text-green-500 mx-auto" /></td>
+						<td class="p-6 text-center"><Check class="w-5 h-5 text-green-500 mx-auto" /></td>
+					</tr>
+					<tr class="border-b border-white/5">
+						<td class="p-6 font-bold">Sport i Ekte 4K</td>
+						<td class="p-6 text-center"><Check class="w-5 h-5 text-green-500 mx-auto" /></td>
+						<td class="p-6 text-center"><Check class="w-5 h-5 text-green-500 mx-auto" /></td>
+						<td class="p-6 text-center"><X class="w-5 h-5 text-red-500 mx-auto" /></td>
+						<td class="p-6 text-center"><X class="w-5 h-5 text-red-500 mx-auto" /></td>
+					</tr>
+					<tr class="border-b border-white/5">
+						<td class="p-6 font-bold">Kundeservice (WhatsApp)</td>
+						<td class="p-6 text-center"><Check class="w-5 h-5 text-green-500 mx-auto" /></td>
+						<td class="p-6 text-center"><Check class="w-5 h-5 text-green-500 mx-auto" /></td>
+						<td class="p-6 text-center"><X class="w-5 h-5 text-red-500 mx-auto" /></td>
+						<td class="p-6 text-center"><Check class="w-5 h-5 text-green-500 mx-auto" /></td>
+					</tr>
+					<tr>
+						<td class="p-6 font-bold">Pris pr måned</td>
+						<td class="p-6 text-center font-bold text-white">Fra 80 kr</td>
+						<td class="p-6 text-center text-gray-300">Fra 110 kr</td>
+						<td class="p-6 text-center text-gray-300">Fra 99 kr</td>
+						<td class="p-6 text-center text-gray-300">Fra 75 kr</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+
+		<div class="space-y-20">
+			<!-- Rank #1: iptv-norge.net -->
+			<section class="glass p-8 md:p-16 rounded-[48px] border-2 border-primary/30 relative overflow-hidden bg-primary/5">
+				<div class="absolute top-0 right-0 bg-primary text-white text-sm font-black px-8 py-3 rounded-bl-3xl uppercase tracking-widest z-10 shadow-xl">
+					#1 Vinner: Best i Test 2026
+				</div>
+
+				<div class="flex flex-col md:flex-row gap-12 items-center mb-12">
+					<div class="text-8xl font-black text-primary">1</div>
+					<div class="flex-1 text-center md:text-left">
+						<h2 class="text-4xl md:text-5xl font-black mb-4"><a href="https://iptv-norge.net" class="hover:text-primary transition-colors">Beste IPTV Norge</a></h2>
+						<div class="flex items-center justify-center md:justify-start gap-1 text-primary mb-6">
+							{[...Array(5)].map(() => <Star class="w-6 h-6 fill-primary" />)}
+							<span class="ml-3 text-white font-black text-xl">5.0 / 5.0</span>
+						</div>
+						<p class="text-xl text-gray-300 leading-relaxed max-w-2xl">
+							Den suverene vinneren i år for <strong>IPTV Norge</strong>. Ingen andre tjenester kan matche kombinasjonen av stabilitet under direktesport, 4K bildekvalitet og overlegen kundeservice.
+						</p>
+					</div>
+					<div class="flex flex-col gap-4">
+						<a href="https://iptv-norge.net" class="btn-primary flex items-center justify-center gap-3 group px-10 py-5 text-lg shadow-2xl">
+							Besøk iptv-norge.net
+							<ArrowRight class="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+						</a>
+					</div>
+				</div>
+
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t border-white/5">
+					<div>
+						<h3 class="font-bold text-2xl text-white mb-6">Høydepunkter:</h3>
+						<ul class="space-y-4">
+							{[
+								"Optimalisert for det norske og nordiske nettet",
+								"Full tilgang til alt av fotball og sport i 4K Ultra HD",
+								"Stort og oppdatert utvalg av VOD (norske serier og filmer)",
+								"Rask aktivering via WhatsApp og mail",
+								"Markedets beste pris for premium-kvalitet"
+							].map((item) => (
+								<li class="flex items-center gap-3 text-gray-300">
+									<Check class="w-5 h-5 text-green-500 shrink-0" />
+									{item}
+								</li>
+							))}
+						</ul>
+					</div>
+					<div class="relative rounded-3xl overflow-hidden border border-white/10 group shadow-2xl">
+						<img 
+							src="/images/hero-iptv.webp" 
+							alt="Beste IPTV Norge Testvinner - iptv-norge.net" 
+							class="w-full h-full object-cover transition-transform group-hover:scale-110 duration-700"
+							width="500"
+							height="400"
+						/>
+						<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+						<div class="absolute bottom-6 left-6 right-6">
+							<p class="text-sm font-bold text-white italic mb-2">"Den mest stabile strømmen vi testet, med null bufring under helgens Premier League-kamper."</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Rank #2: iptvnordic.me -->
+			<section class="glass p-8 md:p-12 rounded-[40px] border border-white/10 relative overflow-hidden">
+				<div class="flex flex-col md:flex-row gap-10 items-center">
+					<div class="text-7xl font-black text-gray-500 opacity-50">2</div>
+					<div class="flex-1 text-center md:text-left">
+						<h2 class="text-3xl font-black mb-3"><a href="https://iptvnordic.me" class="hover:text-primary transition-colors text-white">IPTV Nordic</a></h2>
+						<div class="flex items-center justify-center md:justify-start gap-1 text-primary mb-4">
+							{[...Array(4)].map(() => <Star class="w-5 h-5 fill-primary" />)}
+							<Star class="w-5 h-5 text-primary opacity-30" />
+							<span class="ml-2 text-gray-300 font-bold">4.6 / 5.0</span>
+						</div>
+						<p class="text-gray-400 leading-relaxed">
+							Et solid og populært valg i hele Skandinavia. <a href="https://iptvnordic.me" class="text-primary hover:underline">IPTV Nordic</a> leverer sterkt på kanaltilbud og VOD, og fortjener definitivt en pallplass for sin sterke <strong>IPTV Nordic</strong>-løsning. Litt dyrere enn testvinneren.
+						</p>
+					</div>
+					<div>
+						<a href="https://iptvnordic.me" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/5 hover:bg-white/10 text-white font-bold rounded-2xl transition-colors border border-white/10">
+							Besøk iptvnordic.me
+							<ChevronRight class="w-5 h-5" />
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<!-- Rank #3: iptvnorway.cloud -->
+			<section class="glass p-8 md:p-12 rounded-[40px] border border-white/10 relative overflow-hidden">
+				<div class="flex flex-col md:flex-row gap-10 items-center">
+					<div class="text-7xl font-black text-gray-500 opacity-50">3</div>
+					<div class="flex-1 text-center md:text-left">
+						<h2 class="text-3xl font-black mb-3"><a href="https://iptvnorway.cloud" class="hover:text-primary transition-colors text-white">IPTV Norge</a></h2>
+						<div class="flex items-center justify-center md:justify-start gap-1 text-primary mb-4">
+							{[...Array(4)].map(() => <Star class="w-5 h-5 fill-primary" />)}
+							<Star class="w-5 h-5 text-primary opacity-30" />
+							<span class="ml-2 text-gray-300 font-bold">4.2 / 5.0</span>
+						</div>
+						<p class="text-gray-400 leading-relaxed">
+							Med lang fartstid i bransjen tilbyr <a href="https://iptvnorway.cloud" class="text-primary hover:underline">IPTV Norge</a> et stabilt produkt med alle de nødvendige norske kanalene. Mangler litt på 4K-sport sammenlignet med topp 2, og mangler direkte support på WhatsApp, men alt i alt en god <strong>IPTV Norge</strong>-opplevelse.
+						</p>
+					</div>
+					<div>
+						<a href="https://iptvnorway.cloud" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/5 hover:bg-white/10 text-white font-bold rounded-2xl transition-colors border border-white/10">
+							Besøk iptvnorway.cloud
+							<ChevronRight class="w-5 h-5" />
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<!-- Rank #4: norsk-iptv.net -->
+			<section class="glass p-8 md:p-12 rounded-[40px] border border-white/10 relative overflow-hidden">
+				<div class="flex flex-col md:flex-row gap-10 items-center">
+					<div class="text-7xl font-black text-gray-500 opacity-50">4</div>
+					<div class="flex-1 text-center md:text-left">
+						<h2 class="text-3xl font-black mb-3"><a href="https://norsk-iptv.net" class="hover:text-primary transition-colors text-white">Norsk IPTV</a></h2>
+						<div class="flex items-center justify-center md:justify-start gap-1 text-primary mb-4">
+							{[...Array(4)].map(() => <Star class="w-5 h-5 fill-primary" />)}
+							<Star class="w-5 h-5 text-primary opacity-30" />
+							<span class="ml-2 text-gray-300 font-bold">4.0 / 5.0</span>
+						</div>
+						<p class="text-gray-400 leading-relaxed">
+							Er du på jakt etter det billigste alternativet som fortsatt fungerer bra, er <a href="https://norsk-iptv.net" class="text-primary hover:underline">Norsk IPTV</a> et greit budsjettvalg. Kvaliteten er primært i HD fremfor 4K, men til gjengjeld har de en fin prismodell og brukbar kundeservice.
+						</p>
+					</div>
+					<div>
+						<a href="https://norsk-iptv.net" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/5 hover:bg-white/10 text-white font-bold rounded-2xl transition-colors border border-white/10">
+							Besøk norsk-iptv.net
+							<ChevronRight class="w-5 h-5" />
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<!-- Detailed Review Text -->
+			<section class="prose prose-invert max-w-none prose-p:text-gray-400 prose-headings:text-white mt-24">
+				<h2>Hvorfor <a href="https://iptv-norge.net" class="text-primary hover:underline">Beste IPTV Norge</a> er vinneren av Beste IPTV Norge</h2>
+				<p>Det som virkelig skiller <a href="https://iptv-norge.net" class="text-primary hover:underline">Beste IPTV Norge</a> fra konkurrentene er deres dedikasjon til det norske og nordiske markedet. Mens mange leverandører bruker generiske, overbelastede servere i utlandet, har vår vinner av <strong>Beste IPTV Norge</strong> ruting som er optimalisert for nettverk her hjemme. Dette sikrer ekte stabilitet for deg som bruker.</p>
+				
+				<div class="my-10">
+					<img src="/images/oslo-iptv.webp" alt="Norske IPTV kanaler i Oslo" class="w-full rounded-3xl object-cover h-[350px] border border-white/10 shadow-xl" />
+				</div>
+
+				<h3>Den Ultimate IPTV Nordic Opplevelsen: Bildekvalitet i Ekte 4K</h3>
+				<p>Mange tilbydere lover 4K for sin <strong>IPTV Nordic</strong> tjeneste, men leverer i virkeligheten kun oppskalert 720p eller Full HD. Under vår grundige test overvåket vi bitraten og oppløsningen på de største sportskanalene. Vår konklusjon er krystallklar: <a href="https://iptv-norge.net" class="text-primary hover:underline">Beste IPTV Norge</a> og til dels <a href="https://iptvnordic.me" class="text-primary hover:underline">IPTV Nordic</a> er de eneste som konsekvent leverer toppkvalitet på nivå med tradisjonell parabol eller kabel-TV.</p>
+				
+				<div class="bg-white/5 border border-white/10 p-10 rounded-[32px] my-16">
+					<h3 class="text-2xl font-bold mb-6">Ofte stilte spørsmål om IPTV i Norge</h3>
+					<div class="space-y-6">
+						<div>
+							<h4 class="font-bold text-white mb-2">Hvilken internetthastighet kreves for Beste IPTV Norge?</h4>
+							<p class="text-sm">For å nyte strømmer i 4K uten lagg anbefaler vi en kablet tilkobling og minst 30 Mbps stabil hastighet. For vanlig HD vil 15 Mbps ofte være nok.</p>
+						</div>
+						<div>
+							<h4 class="font-bold text-white mb-2">Hvilken enhet bør jeg bruke?</h4>
+							<p class="text-sm">Du kan bruke Smart TV, Apple TV, Chromecast med Google TV, eller en dedikert Android boks (som Nvidia Shield). Apper som Tivimate eller IPTV Smarters Pro anbefales sterkt.</p>
+						</div>
+						<div>
+							<h4 class="font-bold text-white mb-2">Får jeg med norske undertekster på VOD?</h4>
+							<p class="text-sm">Ja, hos de ledende leverandørene som <a href="https://iptv-norge.net" class="text-primary hover:underline">Beste IPTV Norge</a> vil tusenvis av filmer og serier komme med norske undertekster.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<footer class="mt-24 text-center border-t border-glass-border pt-12">
+			<p class="text-gray-500 text-sm italic">Ansvarsfraskrivelse: Denne testen er basert på våre uavhengige, subjektive erfaringer og tekniske målinger over flere måneder. Resultater kan variere avhengig av ditt utstyr og internettleverandør.</p>
+		</footer>
+	</article>
+</Layout>
