@@ -11,7 +11,7 @@ export default defineConfig({
   adapter: cloudflare(),
   integrations: [sitemap()],
   redirects: {
-    '/': '/no_nu',
+    '/': '/start',
   },
   vite: {
     plugins: [tailwindcss()],
